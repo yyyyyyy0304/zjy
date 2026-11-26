@@ -1,0 +1,231 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>张婧雅 · 个人简历 | 前端开发工程师（实习）</title>
+  <link rel="stylesheet" href="./css/zhang_resume.css" />
+</head>
+<body>
+  <canvas class="zhang_resume_canvas" id="zhang_resume_canvas"></canvas>
+  <div class="zhang_resume_orb zhang_resume_orb_a"></div>
+  <div class="zhang_resume_orb zhang_resume_orb_b"></div>
+
+  <header class="zhang_resume_bar">
+    <a class="zhang_resume_bar_home" href="./index.html">返回首页</a>
+    <div class="zhang_resume_bar_title">张婧雅 · 个人简历</div>
+    <button class="zhang_resume_bar_print" id="zhang_resume_print_btn" type="button">打印 / 保存 PDF</button>
+  </header>
+
+  <main class="zhang_resume_page">
+    <!-- 左侧信息栏 -->
+    <aside class="zhang_resume_side">
+      <div class="zhang_resume_avatar">张</div>
+      <h1 class="zhang_resume_name">张婧雅</h1>
+      <p class="zhang_resume_job">求职意向</p>
+      <p class="zhang_resume_job_main">前端开发工程师（实习）</p>
+      <p class="zhang_resume_job_sub">AI 应用开发（初级）</p>
+
+      <ul class="zhang_resume_contact">
+        <li><span class="zhang_resume_c_label">电话</span><span>138-0000-0000</span></li>
+        <li><span class="zhang_resume_c_label">邮箱</span><span>zhangjingya@example.com</span></li>
+        <li><span class="zhang_resume_c_label">GitHub</span><span>github.com/zhangjingya</span></li>
+        <li><span class="zhang_resume_c_label">现居</span><span>辽宁 · 大连</span></li>
+        <li><span class="zhang_resume_c_label">实习</span><span>5 天/周，连续 6 个月</span></li>
+      </ul>
+
+      <div class="zhang_resume_side_block">
+        <h2 class="zhang_resume_side_title">核心技能</h2>
+        <div class="zhang_resume_chips">
+          <span class="zhang_resume_chip">HTML5 / CSS3</span>
+          <span class="zhang_resume_chip">原生 JavaScript</span>
+          <span class="zhang_resume_chip">Canvas</span>
+          <span class="zhang_resume_chip">Node.js / Express</span>
+          <span class="zhang_resume_chip">MySQL / SQLite</span>
+          <span class="zhang_resume_chip">Supabase</span>
+          <span class="zhang_resume_chip">ECharts</span>
+          <span class="zhang_resume_chip">Git / GitHub</span>
+          <span class="zhang_resume_chip">AI 工具协作</span>
+        </div>
+      </div>
+
+      <div class="zhang_resume_side_block">
+        <h2 class="zhang_resume_side_title">荣誉与证书</h2>
+        <ul class="zhang_resume_side_list">
+          <li>校级二等奖学金（2023—2024）</li>
+          <li>校级三等奖学金（2024—2025）</li>
+          <li>优秀学生干部</li>
+          <li>蓝桥杯 Java 程序设计省赛二等奖（2024）</li>
+          <li>“互联网+”创新创业大赛校级三等奖（2025）</li>
+          <li>CET-4</li>
+        </ul>
+      </div>
+
+      <div class="zhang_resume_side_block">
+        <h2 class="zhang_resume_side_title">作品链接</h2>
+        <p class="zhang_resume_side_text">GitHub / Gitee：github.com/zhangjingya</p>
+        <p class="zhang_resume_side_text">在线 Demo：校园二手交易平台</p>
+      </div>
+    </aside>
+
+    <!-- 右侧正文 -->
+    <section class="zhang_resume_main">
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">01</span>个人概述</h2>
+        <div class="zhang_resume_overview">
+          <article class="zhang_resume_ov_card">
+            <h3>Web 前端</h3>
+            <p>掌握 HTML5、CSS3 与原生 JavaScript 基础，在课程项目中完成 9 个页面与 1 个后台管理界面，能使用语义化标签、Flex 布局、媒体查询与基础 Canvas 绘制。</p>
+          </article>
+          <article class="zhang_resume_ov_card">
+            <h3>后端与部署</h3>
+            <p>使用 Node.js、Express、SQLite 与 Supabase 完成 8 个 RESTful 接口与 JWT 鉴权；项目已部署到公网，可按 README 在本地运行。</p>
+          </article>
+          <article class="zhang_resume_ov_card">
+            <h3>AI 工具使用</h3>
+            <p>在开发中使用 Trae、CodeBuddy、Codex 等工具辅助需求梳理、代码补全与重构，并通过规则文件、提示词记录与人工复核控制生成结果。</p>
+          </article>
+          <article class="zhang_resume_ov_card">
+            <h3>开发习惯</h3>
+            <p>使用 Git 按功能提交并保持提交信息规范，同时整理接口文档、数据库文档与提示词记录，便于回溯实现过程。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">02</span>教育背景</h2>
+        <div class="zhang_resume_edu">
+          <div class="zhang_resume_edu_head">
+            <div>
+              <h3 class="zhang_resume_edu_school">大连东软信息学院</h3>
+              <p class="zhang_resume_edu_major">计算机科学与技术（本科）· 2026 届</p>
+            </div>
+            <span class="zhang_resume_period">2022.09 – 2026.06</span>
+          </div>
+          <p class="zhang_resume_edu_meta">GPA 3.5 / 4.0（专业前 20%）　|　CET-4</p>
+          <p class="zhang_resume_p"><strong>核心课程：</strong>数据结构与算法、计算机网络、数据库原理、Java / Python 程序设计、Web 前端开发、高级网页设计（HTML5 / CSS3 / JavaScript）、OpenHarmony 应用开发。</p>
+          <p class="zhang_resume_p"><strong>荣誉：</strong>校级二等奖学金（2023—2024）、三等奖学金（2024—2025）、优秀学生干部。</p>
+        </div>
+      </section>
+
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">03</span>专业技能</h2>
+        <dl class="zhang_resume_skills">
+          <div class="zhang_resume_skill_row">
+            <dt>前端（熟悉）</dt>
+            <dd>HTML5 语义化 / CSS3（Flex、Grid、媒体查询、过渡动画）/ 原生 JavaScript（DOM、事件、ES6+、异步）/ TypeScript 基础 / Canvas / Swiper / ECharts / iconfont / animate.css</dd>
+          </div>
+          <div class="zhang_resume_skill_row">
+            <dt>后端与数据（了解）</dt>
+            <dd>Node.js + Express、RESTful 接口设计、JWT 鉴权、MySQL / SQLite、Supabase（BaaS）、fetch / AJAX 联调、bcrypt 加密</dd>
+          </div>
+          <div class="zhang_resume_skill_row">
+            <dt>AI 工具（熟悉）</dt>
+            <dd>Trae、CodeBuddy、Codex、OpenCode、WorkBuddy、豆包 / 豆包·工作；MCP 工具调用、Prompt 工程、AGENTS.md 规则约束、AI 代码复核</dd>
+          </div>
+          <div class="zhang_resume_skill_row">
+            <dt>工程与部署（了解）</dt>
+            <dd>Git / GitHub / Gitee、Conventional Commits、ESLint、Vite、Nginx、Linux 常用命令、Vercel / 云服务器部署、Lighthouse 调优</dd>
+          </div>
+          <div class="zhang_resume_skill_row">
+            <dt>了解</dt>
+            <dd>Vue3、React、UniApp 微信小程序、LangChain、FAISS 向量检索、OpenHarmony（ArkTS）、Android（Java）</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">04</span>AI 工具使用</h2>
+        <div class="zhang_resume_flow">
+          <span class="zhang_resume_flow_step">需求梳理</span>
+          <span class="zhang_resume_flow_step">工具辅助实现</span>
+          <span class="zhang_resume_flow_step">人工确认</span>
+          <span class="zhang_resume_flow_step">分文件调整</span>
+          <span class="zhang_resume_flow_step">自测复核</span>
+          <span class="zhang_resume_flow_step">记录提交</span>
+        </div>
+        <ul class="zhang_resume_bullets">
+          <li><strong>工具使用：</strong>按任务类型选择工具，Trae 用于多文件需求拆解与页面调整，CodeBuddy 用于单文件补全与简单测试，Codex / OpenCode 用于终端批量修改，豆包用于资料整理与文档初稿。</li>
+          <li><strong>规则约束：</strong>在项目根目录维护 AGENTS.md，约定命名前缀、目录分层、统一 JSON 响应与注释头，使生成代码符合同一套规范。</li>
+          <li><strong>过程记录：</strong>提示词与模型名称按时间顺序追加记录并保留历史版本，与 Git 提交对应，便于说明代码来源。</li>
+          <li><strong>代码复核：</strong>对 AI 生成的代码先理解再合并，重点检查鉴权、SQL 拼接与异常分支，并用 ESLint 与自测用例验证。</li>
+        </ul>
+      </section>
+
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">05</span>项目经历</h2>
+        <div class="zhang_resume_projects">
+          <article class="zhang_resume_project">
+            <div class="zhang_resume_proj_head">
+              <h3>校园二手交易平台</h3>
+              <span class="zhang_resume_period">2025.09 – 2025.11</span>
+            </div>
+            <p class="zhang_resume_proj_role">独立完成 · 高级网页设计课程作业</p>
+            <p class="zhang_resume_stack">原生 HTML5 / CSS3 / JavaScript（ES6+）+ Node.js / Express + SQLite + ECharts + iconfont</p>
+            <ul class="zhang_resume_bullets">
+              <li>完成 9 个前端页面（首页、列表、详情、登录、注册、我的、发布、消息、关于），详情页按 URL 参数请求对应数据；使用 Flex 与媒体查询完成移动端适配。</li>
+              <li>后端实现列表、详情、搜索、发布、收藏、登录、注册、上传 8 个接口，统一 JSON 响应结构；JWT 中间件拦截未登录的写操作，密码经 bcrypt 加密后入库。</li>
+              <li>实现轮播、tab 切换、滚动加载、搜索过滤、表单校验、图片预览与本地存储等交互，并加入过渡动画、关键帧动画与 Canvas 绘制。</li>
+              <li>后台包含商品、用户、分类 3 个实体的增删改查与搜索分页，仪表盘使用 ECharts 展示近 30 天发布趋势；前端部署到 Vercel，数据使用 Supabase，Git 提交按 feat / fix 分类。</li>
+            </ul>
+          </article>
+
+          <article class="zhang_resume_project">
+            <div class="zhang_resume_proj_head">
+              <h3>课程知识库智能问答</h3>
+              <span class="zhang_resume_period">2025.03 – 2025.06</span>
+            </div>
+            <p class="zhang_resume_proj_role">3 人小组 · 参与检索链路与前端</p>
+            <p class="zhang_resume_stack">Python + LangChain + FAISS + DeepSeek API + Vue3 + SSE</p>
+            <ul class="zhang_resume_bullets">
+              <li>将 200+ 份课程资料（PPT、实验指导书、FAQ）解析切片后写入向量库，完成从检索、拼接上下文到模型生成的基本流程。</li>
+              <li>采用向量检索与 BM25 关键词混合召回，并用父子块保留上下文；小组抽检 50 条问题，答案可用率由 62% 提升至 84%。</li>
+              <li>前端使用 Vue3 + SSE 实现流式输出与引用来源展示，点击引用可定位原文段落；提示词要求标注出处，无法回答时明确拒答。</li>
+            </ul>
+          </article>
+
+          <article class="zhang_resume_project">
+            <div class="zhang_resume_proj_head">
+              <h3>智慧校园数据大屏</h3>
+              <span class="zhang_resume_period">2024.09 – 2024.12</span>
+            </div>
+            <p class="zhang_resume_proj_role">3 人团队 · 前端开发</p>
+            <p class="zhang_resume_stack">原生 JavaScript + ECharts + WebSocket + Node.js + MySQL</p>
+            <ul class="zhang_resume_bullets">
+              <li>展示人流、能耗、设备在线率等指标，使用 WebSocket 增量推送并在前端节流合并渲染，1 秒刷新下保持流畅。</li>
+              <li>封装 8 个可复用的图表与卡片组件，后续页面直接复用，减少重复开发。</li>
+              <li>按需加载与图片压缩，首屏资源由 2.1MB 降至 720KB，Lighthouse 性能评分由 68 提升至 92。</li>
+            </ul>
+          </article>
+        </div>
+        <p class="zhang_resume_more"><strong>其他项目：</strong>京东商城 Web + 微信小程序双端复刻（Vue3 + UniApp），复用部分业务逻辑；OpenHarmony 智能备忘录（ArkTS + Canvas）作为课程设计完成。</p>
+      </section>
+
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">06</span>实践经历与荣誉</h2>
+        <ul class="zhang_resume_bullets">
+          <li><strong>SOVO 大学生创业中心 · 技术组：</strong>参与组织 3 场 AI 编程工具分享（Trae / CodeBuddy、AGENTS.md 规则与提示词记录），累计约 100 人次。</li>
+          <li><strong>班级学习委员：</strong>组织每周代码互评，整理命名与注释规范文档，协助同学完成课程作业。</li>
+          <li><strong>竞赛：</strong>蓝桥杯 Java 程序设计省赛二等奖（2024）、“互联网+”创新创业大赛校级三等奖（2025）。</li>
+          <li><strong>技术输出：</strong>整理并公开 3 个仓库（课程项目模板、iconfont 图标方案、AI 工具配置示例），累计技术笔记 12 篇。</li>
+        </ul>
+      </section>
+
+      <section class="zhang_resume_sec zhang_resume_reveal">
+        <h2 class="zhang_resume_h2"><span class="zhang_resume_h2_num">07</span>自我评价</h2>
+        <p class="zhang_resume_p zhang_resume_intro">计算机科学与技术专业本科在读，具备原生前端开发与基础后端能力，在课程项目中完成了从页面、接口到部署的完整实践。习惯借助 AI 工具提高效率，并对生成代码进行理解和复核；目前仍在学习工程化与性能优化相关内容。</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="zhang_resume_footer">
+    <p>张婧雅　24005240115　大连东软信息学院 · 计算机科学与技术　|　简历页面使用 Canvas 背景动画</p>
+  </footer>
+
+  <script src="./js/zhang_resume.js"></script>
+</body>
+</html>

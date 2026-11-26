@@ -1,0 +1,101 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>科技新闻列表 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <span class="zhang_guide_open">线上演示版 · 依赖后台接口，未部署</span>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 02</p>
+      <h1 class="zhang_guide_title">科技新闻列表</h1>
+      <p class="zhang_guide_lead">展示 MySQL 中的科技新闻数据，支持关键词搜索、分类筛选、分页与详情查看，数据由后端接口统一返回。</p>
+      <div class="zhang_guide_tags">
+        <span>新闻列表</span>
+        <span>搜索分页</span>
+        <span>MySQL</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>news.html</em></div>
+      <img src="../images/screenshots/zhang_shot_news.png" alt="科技新闻列表页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：科技新闻列表（news.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">列表页向后端请求新闻数据，渲染标题、摘要、来源、发布时间与标签；顶部工具栏提供关键词输入、分类下拉与搜索按钮，底部提供上一页 / 下一页切换。</p>
+      <p class="zhang_guide_p">搜索与分类条件会随请求一起提交，页面同时把请求参数与返回数据输出到控制台，方便核对分页结果与筛选逻辑。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>关键词搜索：标题与摘要模糊匹配</li>
+        <li>分类筛选：按新闻分类过滤</li>
+        <li>分页浏览：显示总条数与当前页</li>
+        <li>详情查看：点击卡片查看完整正文</li>
+        <li>空状态提示：无匹配结果时给出说明</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/news</code></td>
+              <td>分页查询新闻列表，支持 keyword、category、page、pageSize 参数</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>news.html</span>
+        <span>js/news.js</span>
+        <span>backend/routes/news.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_database.html">← 数据库连接</a>
+      <span>前台功能 · 第 2 / 15 篇</span>
+      <a href="zhang_guide_produce.html">下一个：农产品图文列表 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 科技新闻列表 · news.html');
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>语音识别 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <span class="zhang_guide_open">线上演示版 · 依赖后台接口，未部署</span>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 08</p>
+      <h1 class="zhang_guide_title">语音识别</h1>
+      <p class="zhang_guide_lead">上传或录制语音文件，调用语音识别接口转写为文字，支持语言选择与历史记录查看。</p>
+      <div class="zhang_guide_tags">
+        <span>语音识别</span>
+        <span>ASR</span>
+        <span>意图识别</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>voice.html</em></div>
+      <img src="../images/screenshots/zhang_shot_voice.png" alt="语音识别页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：语音识别（voice.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">页面支持选择音频文件并试听，提交后由后端调用语音识别接口输文字结果，同时给出客服意图识别结果。</p>
+      <p class="zhang_guide_p">历史记录按时间倒序展示，便于回看最近的转写内容；语言下拉列表从后端动态获取。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>音频文件选择与本地试听</li>
+        <li>语种下拉列表动态加载</li>
+        <li>转写结果与意图识别展示</li>
+        <li>历史记录查询</li>
+        <li>上传格式与大小校验</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/voice/transcribe</code></td>
+              <td>上传音频并返回转写文本与意图识别结果</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/voice/history</code></td>
+              <td>查询语音识别历史记录</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/voice/languages</code></td>
+              <td>获取支持的语种列表</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>voice.html</span>
+        <span>js/voice.js</span>
+        <span>backend/routes/voice.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_vision.html">← 图像识别</a>
+      <span>前台功能 · 第 8 / 15 篇</span>
+      <a href="zhang_guide_login.html">下一个：用户登录 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 语音识别 · voice.html');
+  </script>
+</body>
+</html>

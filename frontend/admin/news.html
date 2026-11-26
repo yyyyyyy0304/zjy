@@ -1,0 +1,64 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新闻管理 · 田园优选管理后台 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/zhang_admin.css" />
+</head>
+<body class="zhang_admin_body" data-zhang-page="news">
+  <div class="zhang_admin_layout">
+    <aside class="zhang_admin_side" id="zhang_admin_side"></aside>
+    <div class="zhang_admin_main">
+      <header class="zhang_admin_topbar" id="zhang_admin_topbar"></header>
+      <main class="zhang_admin_content">
+        <section class="zhang_admin_panel">
+          <div class="zhang_admin_toolbar">
+            <div class="zhang_admin_search">
+              <input class="zhang_admin_input" id="zhang_news_search" type="text" placeholder="搜索标题 / 分类 / 作者 / 来源" />
+              <button class="zhang_admin_btn zhang_admin_btn_ghost" type="button" id="zhang_news_search_btn">搜索</button>
+              <button class="zhang_admin_btn zhang_admin_btn_ghost" type="button" id="zhang_news_reset_btn">重置</button>
+            </div>
+            <button class="zhang_admin_btn" type="button" id="zhang_news_add_btn">+ 新增新闻</button>
+          </div>
+
+          <div class="zhang_admin_table_wrap">
+            <table class="zhang_admin_table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>标题</th>
+                  <th>分类</th>
+                  <th>来源</th>
+                  <th>作者</th>
+                  <th>浏览量</th>
+                  <th>发布时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="zhang_news_tbody">
+                <tr><td colspan="8"><div class="zhang_admin_empty">数据加载中…</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="zhang_admin_pager">
+            <span id="zhang_news_pageinfo">共 0 条记录</span>
+            <div class="zhang_admin_pager_btns" id="zhang_news_pager"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="zhang_admin_toast_box" id="zhang_admin_toast_box"></div>
+
+  <script src="./js/zhang_admin_api.js"></script>
+  <script src="./js/zhang_admin_layout.js"></script>
+  <script src="./js/zhang_admin_news.js"></script>
+</body>
+</html>

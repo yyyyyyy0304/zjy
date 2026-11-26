@@ -1,0 +1,63 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户管理 · 田园优选管理后台 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/zhang_admin.css" />
+</head>
+<body class="zhang_admin_body" data-zhang-page="users">
+  <div class="zhang_admin_layout">
+    <aside class="zhang_admin_side" id="zhang_admin_side"></aside>
+    <div class="zhang_admin_main">
+      <header class="zhang_admin_topbar" id="zhang_admin_topbar"></header>
+      <main class="zhang_admin_content">
+        <section class="zhang_admin_panel">
+          <div class="zhang_admin_toolbar">
+            <div class="zhang_admin_search">
+              <input class="zhang_admin_input" id="zhang_user_search" type="text" placeholder="搜索用户名 / 昵称 / 邮箱" />
+              <button class="zhang_admin_btn zhang_admin_btn_ghost" type="button" id="zhang_user_search_btn">搜索</button>
+              <button class="zhang_admin_btn zhang_admin_btn_ghost" type="button" id="zhang_user_reset_btn">重置</button>
+            </div>
+            <button class="zhang_admin_btn" type="button" id="zhang_user_add_btn">+ 新增用户</button>
+          </div>
+
+          <div class="zhang_admin_table_wrap">
+            <table class="zhang_admin_table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>用户名</th>
+                  <th>昵称</th>
+                  <th>邮箱</th>
+                  <th>注册时间</th>
+                  <th>最近登录</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="zhang_user_tbody">
+                <tr><td colspan="7"><div class="zhang_admin_empty">数据加载中…</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="zhang_admin_pager">
+            <span id="zhang_user_pageinfo">共 0 条记录</span>
+            <div class="zhang_admin_pager_btns" id="zhang_user_pager"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="zhang_admin_toast_box" id="zhang_admin_toast_box"></div>
+
+  <script src="./js/zhang_admin_api.js"></script>
+  <script src="./js/zhang_admin_layout.js"></script>
+  <script src="./js/zhang_admin_users.js"></script>
+</body>
+</html>

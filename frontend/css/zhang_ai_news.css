@@ -1,0 +1,437 @@
+/*
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-23 | 大模型：DeepSeek-V4.1-Flash
+说明：AI 新闻列表页（Supabase 数据源）专属样式，基础样式复用 style.css
+*/
+
+/* ===== 页面主视觉 ===== */
+.zhang_ai_hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 8px 0 4px;
+  padding: 28px 30px;
+  border: 1px solid var(--zhang_color_line);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(95, 219, 160, 0.16) 0%, transparent 55%),
+    linear-gradient(135deg, rgba(14, 40, 28, 0.9) 0%, rgba(9, 24, 17, 0.85) 100%);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+.zhang_ai_hero_text {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.zhang_ai_hero_title {
+  margin: 10px 0 10px;
+  font-size: clamp(26px, 3.4vw, 38px);
+  letter-spacing: 1px;
+  background: linear-gradient(120deg, #eafff2 0%, var(--zhang_color_accent) 55%, var(--zhang_color_wheat) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.zhang_ai_hero_desc {
+  margin: 0;
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_ai_stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.zhang_ai_stat {
+  min-width: 104px;
+  padding: 14px 16px;
+  border: 1px solid var(--zhang_color_line);
+  border-radius: 16px;
+  background: rgba(7, 20, 14, 0.6);
+  text-align: center;
+}
+
+.zhang_ai_stat strong {
+  display: block;
+  font-size: 22px;
+  color: var(--zhang_color_accent_soft);
+  letter-spacing: 0.5px;
+}
+
+.zhang_ai_stat span {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--zhang_color_muted);
+}
+
+/* ===== 工具栏 ===== */
+.zhang_ai_toolbar {
+  flex-wrap: wrap;
+}
+
+.zhang_ai_select {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--zhang_color_line);
+  background: rgba(7, 20, 14, 0.75);
+  color: var(--zhang_color_text);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.zhang_ai_select:focus {
+  border-color: rgba(95, 219, 160, 0.55);
+  box-shadow: 0 0 0 3px rgba(95, 219, 160, 0.12);
+}
+
+.zhang_ai_filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 20px;
+}
+
+.zhang_ai_chip {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--zhang_color_line);
+  background: rgba(7, 20, 14, 0.6);
+  color: var(--zhang_color_muted);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.zhang_ai_chip:hover {
+  color: var(--zhang_color_accent_soft);
+  border-color: rgba(95, 219, 160, 0.45);
+  transform: translateY(-1px);
+}
+
+.zhang_ai_chip_active {
+  color: #04220f;
+  font-weight: 700;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--zhang_color_accent) 0%, var(--zhang_color_wheat) 100%);
+  box-shadow: 0 8px 20px rgba(95, 219, 160, 0.22);
+}
+
+/* ===== 新闻卡片网格 ===== */
+.zhang_ai_grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.zhang_ai_card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--zhang_color_line);
+  border-radius: 18px;
+  background: var(--zhang_color_panel);
+  cursor: pointer;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.zhang_ai_card:hover,
+.zhang_ai_card:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(95, 219, 160, 0.45);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+  outline: none;
+}
+
+.zhang_ai_cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #123325 0%, #0a1c13 60%, #1d3a29 100%);
+}
+
+.zhang_ai_cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.zhang_ai_card:hover .zhang_ai_cover img {
+  transform: scale(1.05);
+}
+
+.zhang_ai_cover_fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: rgba(95, 219, 160, 0.5);
+  letter-spacing: 2px;
+}
+
+.zhang_ai_card_body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  padding: 16px 18px 18px;
+}
+
+.zhang_ai_card_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.zhang_ai_badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--zhang_color_wheat);
+  background: rgba(242, 201, 109, 0.12);
+  border: 1px solid rgba(242, 201, 109, 0.28);
+}
+
+.zhang_ai_views {
+  font-size: 12px;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_ai_title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--zhang_color_text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.zhang_ai_summary {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--zhang_color_muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.zhang_ai_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.zhang_ai_tag {
+  padding: 2px 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--zhang_color_accent_soft);
+  background: rgba(95, 219, 160, 0.1);
+  border: 1px solid rgba(95, 219, 160, 0.18);
+}
+
+.zhang_ai_foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--zhang_color_line);
+  font-size: 12px;
+  color: var(--zhang_color_muted);
+}
+
+/* ===== 骨架屏 ===== */
+.zhang_ai_skeleton {
+  height: 320px;
+  border-radius: 18px;
+  border: 1px solid var(--zhang_color_line);
+  background: linear-gradient(100deg, rgba(14, 34, 25, 0.5) 30%, rgba(30, 62, 45, 0.55) 50%, rgba(14, 34, 25, 0.5) 70%);
+  background-size: 220% 100%;
+  animation: zhang_ai_shimmer 1.4s linear infinite;
+}
+
+@keyframes zhang_ai_shimmer {
+  0% { background-position: 120% 0; }
+  100% { background-position: -120% 0; }
+}
+
+/* ===== 详情弹层 ===== */
+.zhang_ai_modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.zhang_ai_modal[hidden] {
+  display: none;
+}
+
+.zhang_ai_modal_mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 8, 5, 0.76);
+  backdrop-filter: blur(6px);
+  animation: zhang_ai_fade 0.22s ease-out;
+}
+
+.zhang_ai_modal_panel {
+  position: relative;
+  width: min(880px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  border: 1px solid rgba(95, 219, 160, 0.28);
+  border-radius: 22px;
+  background: linear-gradient(160deg, #0f2a1d 0%, #07140e 70%);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  animation: zhang_ai_rise 0.26s ease-out;
+}
+
+@keyframes zhang_ai_fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zhang_ai_rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.zhang_ai_modal_close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(4, 12, 8, 0.65);
+  color: #eafff2;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.zhang_ai_modal_close:hover {
+  background: rgba(95, 219, 160, 0.28);
+  transform: rotate(90deg);
+}
+
+.zhang_ai_modal_cover {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+  background: #0a1c13;
+}
+
+.zhang_ai_modal_body {
+  padding: 24px 28px 32px;
+}
+
+.zhang_ai_modal_title {
+  margin: 12px 0 10px;
+  font-size: 24px;
+  line-height: 1.45;
+  color: var(--zhang_color_text);
+}
+
+.zhang_ai_meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed var(--zhang_color_line);
+  font-size: 13px;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_ai_content {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 2;
+  color: #d8ebe0;
+}
+
+.zhang_ai_content p {
+  margin: 0 0 14px;
+}
+
+.zhang_ai_content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 空状态 ===== */
+.zhang_ai_grid .zhang_empty {
+  grid-column: 1 / -1;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 1024px) {
+  .zhang_ai_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .zhang_ai_hero {
+    padding: 22px 20px;
+  }
+
+  .zhang_ai_stats {
+    width: 100%;
+  }
+
+  .zhang_ai_stat {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .zhang_ai_grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .zhang_ai_modal {
+    padding: 12px;
+  }
+
+  .zhang_ai_modal_body {
+    padding: 20px 18px 24px;
+  }
+
+  .zhang_ai_modal_title {
+    font-size: 20px;
+  }
+}

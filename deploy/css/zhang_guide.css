@@ -1,0 +1,400 @@
+/*
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+说明：后台接口页面说明文档共用样式，浏览器窗口式截图框 + 说明内容排版
+*/
+
+body {
+  background:
+    radial-gradient(circle at 8% 4%, rgba(95, 219, 160, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 92% 96%, rgba(242, 201, 109, 0.08) 0%, transparent 42%),
+    var(--zhang_color_bg);
+}
+
+/* ===== 顶部栏 ===== */
+.zhang_guide_bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px clamp(16px, 4vw, 40px);
+  background: rgba(7, 20, 14, 0.82);
+  border-bottom: 1px solid var(--zhang_color_line);
+  backdrop-filter: blur(14px);
+}
+
+.zhang_guide_back,
+.zhang_guide_open {
+  font-size: 13px;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.zhang_guide_back {
+  color: var(--zhang_color_accent_soft);
+  border: 1px solid rgba(95, 219, 160, 0.3);
+  background: rgba(95, 219, 160, 0.08);
+}
+
+.zhang_guide_back:hover {
+  background: rgba(95, 219, 160, 0.18);
+}
+
+.zhang_guide_open {
+  color: var(--zhang_color_wheat);
+  border: 1px solid rgba(242, 201, 109, 0.3);
+  background: rgba(242, 201, 109, 0.08);
+}
+
+.zhang_guide_open:hover {
+  background: rgba(242, 201, 109, 0.16);
+}
+
+.zhang_guide_meta {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--zhang_color_muted);
+}
+
+/* ===== 主体 ===== */
+.zhang_guide_wrap {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 36px 0 56px;
+}
+
+.zhang_guide_head {
+  margin-bottom: 24px;
+}
+
+.zhang_guide_kicker {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--zhang_color_accent_soft);
+  background: rgba(95, 219, 160, 0.1);
+  border: 1px solid rgba(95, 219, 160, 0.24);
+}
+
+.zhang_guide_title {
+  margin: 0 0 12px;
+  font-size: clamp(26px, 3.4vw, 36px);
+  letter-spacing: 1px;
+  background: linear-gradient(120deg, #ffffff 0%, var(--zhang_color_accent_soft) 60%, var(--zhang_color_wheat) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.zhang_guide_lead {
+  margin: 0 0 14px;
+  max-width: 860px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_guide_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zhang_guide_tags span {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--zhang_color_wheat);
+  background: rgba(242, 201, 109, 0.1);
+  border: 1px solid rgba(242, 201, 109, 0.26);
+}
+
+/* ===== 浏览器窗口式截图 ===== */
+.zhang_guide_figure {
+  margin: 0 0 26px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--zhang_color_line);
+  background: #0a1a12;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.zhang_guide_chrome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--zhang_color_line);
+  background: rgba(16, 38, 27, 0.9);
+}
+
+.zhang_guide_chrome i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.zhang_guide_chrome i:nth-child(2) {
+  background: #febc2e;
+}
+
+.zhang_guide_chrome i:nth-child(3) {
+  background: #28c840;
+}
+
+.zhang_guide_chrome em {
+  margin-left: 10px;
+  padding: 2px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-style: normal;
+  color: var(--zhang_color_muted);
+  background: rgba(7, 20, 14, 0.7);
+  border: 1px solid var(--zhang_color_line);
+}
+
+.zhang_guide_figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zhang_guide_caption {
+  padding: 9px 16px;
+  font-size: 12px;
+  color: var(--zhang_color_muted);
+  border-top: 1px solid var(--zhang_color_line);
+  background: rgba(10, 26, 18, 0.9);
+}
+
+/* ===== 内容区块 ===== */
+.zhang_guide_sec {
+  margin-bottom: 22px;
+  padding: 22px 26px;
+  border-radius: 18px;
+  border: 1px solid var(--zhang_color_line);
+  background: var(--zhang_color_panel);
+}
+
+.zhang_guide_h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: var(--zhang_color_accent_soft);
+}
+
+.zhang_guide_h2::before {
+  content: "";
+  width: 6px;
+  height: 16px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--zhang_color_accent) 0%, var(--zhang_color_wheat) 100%);
+}
+
+.zhang_guide_p {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.95;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_guide_p:last-child {
+  margin-bottom: 0;
+}
+
+.zhang_guide_p strong {
+  color: var(--zhang_color_text);
+}
+
+.zhang_guide_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.zhang_guide_list li {
+  position: relative;
+  padding: 5px 0 5px 18px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_guide_list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--zhang_color_accent);
+  transform: rotate(45deg);
+}
+
+.zhang_guide_list strong {
+  color: var(--zhang_color_text);
+}
+
+/* ===== 接口表格 ===== */
+.zhang_guide_table_wrap {
+  overflow-x: auto;
+}
+
+.zhang_guide_table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.zhang_guide_table th,
+.zhang_guide_table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--zhang_color_line);
+  vertical-align: top;
+}
+
+.zhang_guide_table th {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--zhang_color_muted);
+  font-weight: 400;
+  background: rgba(95, 219, 160, 0.05);
+}
+
+.zhang_guide_table td {
+  color: var(--zhang_color_text);
+  line-height: 1.7;
+}
+
+.zhang_guide_table code {
+  padding: 1px 7px;
+  border-radius: 5px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12.5px;
+  color: var(--zhang_color_accent_soft);
+  background: rgba(95, 219, 160, 0.08);
+}
+
+.zhang_guide_method {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #04220f;
+  background: var(--zhang_color_accent);
+}
+
+.zhang_guide_method_get {
+  background: #7bc7f0;
+}
+
+.zhang_guide_method_post {
+  background: var(--zhang_color_wheat);
+}
+
+.zhang_guide_method_put {
+  background: #c7a3f0;
+}
+
+.zhang_guide_method_delete {
+  background: #ff8f8f;
+}
+
+/* ===== 文件标签 ===== */
+.zhang_guide_files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zhang_guide_files span {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: Consolas, "Courier New", monospace;
+  color: var(--zhang_color_accent_soft);
+  background: rgba(95, 219, 160, 0.07);
+  border: 1px dashed rgba(95, 219, 160, 0.24);
+}
+
+/* ===== 上下页 ===== */
+.zhang_guide_pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.zhang_guide_pager a {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--zhang_color_accent_soft);
+  border: 1px solid var(--zhang_color_line);
+  background: rgba(95, 219, 160, 0.06);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.zhang_guide_pager a:hover {
+  border-color: rgba(95, 219, 160, 0.5);
+  background: rgba(95, 219, 160, 0.14);
+}
+
+.zhang_guide_pager span {
+  font-size: 12px;
+  color: var(--zhang_color_muted);
+}
+
+.zhang_guide_footer {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px 34px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--zhang_color_muted);
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 640px) {
+  .zhang_guide_bar {
+    padding: 10px 14px;
+  }
+
+  .zhang_guide_meta {
+    display: none;
+  }
+
+  .zhang_guide_wrap {
+    width: calc(100% - 24px);
+    padding-top: 24px;
+  }
+
+  .zhang_guide_sec {
+    padding: 18px 16px;
+  }
+
+  .zhang_guide_back,
+  .zhang_guide_open {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}

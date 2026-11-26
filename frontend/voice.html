@@ -1,0 +1,186 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>语音识别 · 田园优选 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">语音识别</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="./index.html">返回首页</a>
+        <a href="#zhang_voice_api">接口信息</a>
+        <a href="#zhang_voice_input">录音识别</a>
+        <a href="#zhang_voice_result">识别结果</a>
+        <a href="#zhang_voice_history">历史记录</a>
+        <a href="./login.html">登录</a>
+        <a href="./register.html">注册</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap">
+    <!-- 接口信息 -->
+    <section class="zhang_section" id="zhang_voice_api">
+      <h2 class="zhang_section_title">后端接口</h2>
+      <div class="zhang_api_box">
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">POST</span>
+          <a class="zhang_api_url" href="/api/voice/transcribe" target="_blank" rel="noopener">http://localhost:8115/api/voice/transcribe</a>
+        </div>
+        <p class="zhang_api_desc">上传音频文件（multipart 字段名 <code>file</code>，可选字段 <code>language</code> 指定语种，默认 <code>auto</code> 自动检测），后端按「多语种模型链」依次调用 <code>Qwen/Qwen3-ASR-1.7B</code> → <code>FunAudioLLM/SenseVoiceSmall</code> → <code>TeleAI/TeleSpeechASR</code>，任一模型识别出文本即返回，可覆盖世界上大多数国家/地区的语言与方言；随后把文本交给 <code>deepseek-ai/DeepSeek-V4-Flash</code> 做语种判定、中文翻译与客服意图识别（JSON 结构化输出），结果写入数据库。</p>
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">GET</span>
+          <a class="zhang_api_url" href="/api/voice/history" target="_blank" rel="noopener">http://localhost:8115/api/voice/history</a>
+        </div>
+        <p class="zhang_api_desc">查询最近的语音识别记录（默认 20 条），数据来自 MySQL 表 <code>zhang_voice_record</code>。</p>
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">GET</span>
+          <a class="zhang_api_url" href="/api/voice/languages" target="_blank" rel="noopener">http://localhost:8115/api/voice/languages</a>
+        </div>
+        <p class="zhang_api_desc">返回后端支持的语种清单（含 <code>auto</code> 自动检测项），前端「识别语种」下拉框据此生成。</p>
+      </div>
+    </section>
+
+    <!-- 录音与上传 -->
+    <section class="zhang_section" id="zhang_voice_input">
+      <h2 class="zhang_section_title">录音或上传音频</h2>
+
+      <!-- 【本次新增】识别语种选择：默认自动检测，也可手动指定世界任一语种 -->
+      <div class="zhang_voice_lang_box">
+        <label class="zhang_voice_lang_label" for="zhang_voice_lang">识别语种</label>
+        <select class="zhang_voice_lang_select" id="zhang_voice_lang">
+          <option value="auto">自动检测（推荐，支持世界各国家/地区语言）</option>
+        </select>
+        <span class="zhang_voice_lang_tip" id="zhang_voice_lang_tip">自动检测会按字符集 + 大模型双重判断语种；指定语种可提高小众语言的识别准确率</span>
+      </div>
+
+      <div class="zhang_rec_box">
+        <div class="zhang_rec_status_box">
+          <span class="zhang_rec_dot" id="zhang_voice_rec_dot"></span>
+          <span class="zhang_rec_status" id="zhang_voice_rec_status">点击“开始录音”，允许麦克风权限后说出你的问题</span>
+        </div>
+        <div class="zhang_rec_actions">
+          <button class="zhang_btn zhang_rec_btn" id="zhang_voice_rec_btn" type="button">开始录音</button>
+          <span class="zhang_rec_tip" id="zhang_voice_rec_time">00:00</span>
+        </div>
+        <audio class="zhang_rec_audio" id="zhang_voice_audio" controls hidden></audio>
+      </div>
+
+      <div class="zhang_kb_upload_area" id="zhang_voice_drop_zone" style="margin-top:18px">
+        <div class="zhang_kb_upload_icon">＋</div>
+        <p class="zhang_kb_upload_text">点击选择音频文件或拖拽到此处</p>
+        <p class="zhang_kb_upload_hint">支持 mp3 / wav / m4a / webm / ogg 等格式，单个文件不超过 25MB</p>
+        <input class="zhang_kb_file_input" id="zhang_voice_file_input" type="file" accept="audio/*,.mp3,.wav,.m4a,.webm,.ogg" hidden />
+      </div>
+
+      <div class="zhang_alert zhang_alert_err" id="zhang_voice_alert" hidden>
+        <span class="zhang_alert_icon">!</span>
+        <span class="zhang_alert_text" id="zhang_voice_alert_text"></span>
+      </div>
+
+      <div class="zhang_chat_console_info" style="margin-top:16px">
+        <p>可直接下载示例音频测试识别效果：</p>
+      </div>
+      <div class="zhang_sample_files">
+        <a class="zhang_sample_file" href="./files/语音样例-产品介绍.mp3" download>语音样例-产品介绍.mp3</a>
+        <a class="zhang_sample_file" href="./files/语音样例-订单查询.mp3" download>语音样例-订单查询.mp3</a>
+        <a class="zhang_sample_file" href="./files/语音样例-售后咨询.mp3" download>语音样例-售后咨询.mp3</a>
+      </div>
+    </section>
+
+    <!-- 加载中 -->
+    <section class="zhang_section" id="zhang_voice_loading" style="display:none">
+      <h2 class="zhang_section_title">正在识别…</h2>
+      <div class="zhang_sent_loading_box">
+        <div class="zhang_chat_typing"><span></span><span></span><span></span></div>
+        <p class="zhang_sent_loading_text">正在调用语音识别模型转写音频，请稍候…</p>
+      </div>
+    </section>
+
+    <!-- 识别结果 -->
+    <section class="zhang_section" id="zhang_voice_result" style="display:none">
+      <h2 class="zhang_section_title">识别结果</h2>
+
+      <div class="zhang_result_card">
+        <div class="zhang_result_head">
+          <span class="zhang_result_label">识别文本</span>
+          <span class="zhang_result_meta" id="zhang_voice_meta">—</span>
+        </div>
+        <p class="zhang_result_text" id="zhang_voice_text">—</p>
+        <!-- 【本次新增】非中文语音的中文译文 -->
+        <p class="zhang_result_text zhang_result_translation" id="zhang_voice_translation" hidden>—</p>
+      </div>
+
+      <div class="zhang_result_card">
+        <div class="zhang_result_head">
+          <span class="zhang_result_label">客服意图识别（大模型）</span>
+          <span class="zhang_result_meta" id="zhang_voice_confidence">—</span>
+        </div>
+        <div class="zhang_intent_grid" id="zhang_voice_intent"></div>
+      </div>
+    </section>
+
+    <!-- 历史记录 -->
+    <section class="zhang_section" id="zhang_voice_history">
+      <h2 class="zhang_section_title">识别历史记录 <span class="zhang_count" id="zhang_voice_history_count">0 条</span></h2>
+      <div class="zhang_sent_table_wrap">
+        <table class="zhang_sent_table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>音频文件</th>
+              <th>识别文本</th>
+              <th>意图</th>
+              <th>置信度</th>
+              <th>时间</th>
+            </tr>
+          </thead>
+          <tbody id="zhang_voice_history_body">
+            <tr><td colspan="6" class="zhang_table_empty">加载中…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 控制台数据 -->
+    <section class="zhang_section">
+      <h2 class="zhang_section_title">控制台数据</h2>
+      <div class="zhang_chat_console_info">
+        <p>发送给大模型的数据和从大模型接收到的数据已输出到浏览器控制台（<code>F12</code> → Console）。</p>
+        <p>下方亦可展开查看最近一次的原始数据。</p>
+      </div>
+      <details class="zhang_raw">
+        <summary>查看最近一次发送给大模型的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_voice_send_raw">暂无数据</pre>
+      </details>
+      <details class="zhang_raw">
+        <summary>查看最近一次从大模型接收到的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_voice_recv_raw">暂无数据</pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script src="./js/voice.js"></script>
+</body>
+</html>

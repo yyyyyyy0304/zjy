@@ -1,0 +1,141 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-16 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>评论情感分类 · 田园优选 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">评论情感分类</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="./index.html">返回首页</a>
+        <a href="#zhang_sent_api">接口信息</a>
+        <a href="#zhang_sent_upload">上传文件</a>
+        <a href="#zhang_sent_result">分析结果</a>
+        <a href="./login.html">登录</a>
+        <a href="./register.html">注册</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap">
+    <!-- 接口信息 -->
+    <section class="zhang_section" id="zhang_sent_api">
+      <h2 class="zhang_section_title">后端接口</h2>
+      <div class="zhang_api_box">
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">POST</span>
+          <a class="zhang_api_url" href="/api/sentiment/analyze" target="_blank" rel="noopener">http://localhost:8115/api/sentiment/analyze</a>
+        </div>
+        <p class="zhang_api_desc">上传 Excel 文件（含商业评论），后端解析后调用大模型对每条评论进行情感分类（好评 / 中评 / 差评），返回饼状图数据与精选评论。在浏览器控制台输出发送给大模型的数据和从大模型接收到的数据。</p>
+      </div>
+    </section>
+
+    <!-- 文件上传 -->
+    <section class="zhang_section" id="zhang_sent_upload">
+      <h2 class="zhang_section_title">上传评论文件</h2>
+
+      <div class="zhang_kb_upload_area" id="zhang_sent_drop_zone">
+        <div class="zhang_kb_upload_icon">+</div>
+        <p class="zhang_kb_upload_text">点击选择 Excel 文件或拖拽到此处</p>
+        <p class="zhang_kb_upload_hint">支持 xlsx / xls 格式，文件中需包含评论列</p>
+        <input class="zhang_kb_file_input" id="zhang_sent_file_input" type="file" accept=".xlsx,.xls" hidden />
+      </div>
+
+      <div class="zhang_alert zhang_alert_err" id="zhang_sent_alert" hidden>
+        <span class="zhang_alert_icon">!</span>
+        <span class="zhang_alert_text" id="zhang_sent_alert_text"></span>
+      </div>
+
+      <div class="zhang_chat_console_info" style="margin-top:16px">
+        <p>可直接点击下方示例文件下载后上传测试（每个文件 20 条商业评论）：</p>
+      </div>
+      <div class="zhang_sample_files">
+        <a class="zhang_sample_file" href="./files/电商商品评论_20条.xlsx" download>电商商品评论_20条.xlsx</a>
+        <a class="zhang_sample_file" href="./files/餐饮门店评论_20条.xlsx" download>餐饮门店评论_20条.xlsx</a>
+        <a class="zhang_sample_file" href="./files/在线课程评论_20条.xlsx" download>在线课程评论_20条.xlsx</a>
+      </div>
+    </section>
+
+    <!-- 加载中 -->
+    <section class="zhang_section" id="zhang_sent_loading" style="display:none">
+      <h2 class="zhang_section_title">正在分析…</h2>
+      <div class="zhang_sent_loading_box">
+        <div class="zhang_chat_typing"><span></span><span></span><span></span></div>
+        <p class="zhang_sent_loading_text">大模型正在对评论进行情感分类，请稍候…</p>
+      </div>
+    </section>
+
+    <!-- 分析结果 -->
+    <section class="zhang_section" id="zhang_sent_result" style="display:none">
+      <h2 class="zhang_section_title">情感分类结果 <span class="zhang_count" id="zhang_sent_total">0 条评论</span></h2>
+
+      <!-- 饼状图 + 统计 -->
+      <div class="zhang_sent_chart_box">
+        <canvas class="zhang_sent_chart" id="zhang_sent_chart" width="260" height="260"></canvas>
+        <div class="zhang_sent_legend" id="zhang_sent_legend"></div>
+      </div>
+
+      <!-- 精选评论 -->
+      <div class="zhang_sent_highlights" id="zhang_sent_highlights"></div>
+
+      <!-- 全部评论列表 -->
+      <div class="zhang_sent_all_box">
+        <h3 class="zhang_kb_sub_title">全部评论分类明细</h3>
+        <div class="zhang_sent_table_wrap">
+          <table class="zhang_sent_table">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>评论内容</th>
+                <th>情感分类</th>
+                <th>分类理由</th>
+              </tr>
+            </thead>
+            <tbody id="zhang_sent_table_body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 控制台数据展示 -->
+    <section class="zhang_section">
+      <h2 class="zhang_section_title">控制台数据</h2>
+      <div class="zhang_chat_console_info">
+        <p>发送给大模型的数据和从大模型接收到的数据已输出到浏览器控制台（<code>F12</code> → Console）。</p>
+        <p>下方亦可展开查看最近一次的原始数据。</p>
+      </div>
+      <details class="zhang_raw">
+        <summary>查看最近一次发送给大模型的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_sent_send_raw">暂无数据</pre>
+      </details>
+      <details class="zhang_raw">
+        <summary>查看最近一次从大模型接收到的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_sent_recv_raw">暂无数据</pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script src="./js/sentiment.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理员登录 · 田园优选管理后台 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/zhang_admin.css" />
+</head>
+<body class="zhang_admin_login_body">
+  <div class="zhang_admin_login_layout">
+    <!-- 左侧：项目名称与 Logo -->
+    <section class="zhang_admin_login_left">
+      <div class="zhang_admin_login_brand">
+        <span class="zhang_admin_login_logo">田</span>
+        <div>
+          <b>田园优选</b>
+          <small>ZHANG FARM ADMIN</small>
+        </div>
+      </div>
+
+      <div class="zhang_admin_login_slogan">
+        <h1>农产品销售网站<br />后台管理系统</h1>
+        <p>统一管理科技新闻、农产品图文与注册用户，实时查看新闻分类、农产品库存与用户增长等运营数据。</p>
+        <div class="zhang_admin_login_points">
+          <span>三大业务实体管理</span>
+          <span>真实数据图表</span>
+          <span>令牌鉴权拦截</span>
+        </div>
+      </div>
+
+      <div class="zhang_admin_login_foot">
+        张婧雅　24005240115<br />
+        高级网页设计 · 全栈项目
+      </div>
+    </section>
+
+    <!-- 右侧：管理员登录表单 -->
+    <section class="zhang_admin_login_right">
+      <div class="zhang_admin_login_card">
+        <h2>管理员登录</h2>
+        <p>请输入管理员用户名与密码，登录状态有效期 2 小时。</p>
+
+        <!-- 自定义提示条（不使用浏览器默认 alert / prompt） -->
+        <div class="zhang_admin_alert zhang_admin_alert_err" id="zhang_admin_login_alert" hidden>
+          <span class="zhang_admin_alert_icon">!</span>
+          <span class="zhang_admin_alert_text"></span>
+        </div>
+
+        <form id="zhang_admin_login_form" novalidate>
+          <div class="zhang_admin_login_item">
+            <label for="zhang_admin_username">管理员用户名</label>
+            <input id="zhang_admin_username" type="text" placeholder="请输入管理员用户名" autocomplete="username" maxlength="20" />
+          </div>
+          <div class="zhang_admin_login_item">
+            <label for="zhang_admin_password">密码</label>
+            <input id="zhang_admin_password" type="password" placeholder="请输入密码" autocomplete="current-password" maxlength="20" />
+          </div>
+          <div class="zhang_admin_login_item">
+            <label for="zhang_admin_captcha">图形验证码</label>
+            <div class="zhang_admin_login_captcha">
+              <input id="zhang_admin_captcha" type="text" placeholder="输入 4 位验证码" autocomplete="off" maxlength="4" />
+              <div class="zhang_admin_login_captcha_box" id="zhang_admin_login_captcha_box" title="点击刷新验证码">加载中…</div>
+            </div>
+          </div>
+          <button class="zhang_admin_login_btn" type="submit" id="zhang_admin_login_submit">登 录</button>
+        </form>
+
+        <p class="zhang_admin_login_link"><a href="../index.html">← 返回前台首页</a></p>
+        <div class="zhang_admin_login_tip">
+          测试管理员账号：<b>zhang_admin</b>　密码：<b>admin123456</b>（共 8 个管理员账号，密码相同）
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="zhang_admin_toast_box" id="zhang_admin_toast_box"></div>
+
+  <script src="./js/zhang_admin_api.js"></script>
+  <script src="./js/zhang_admin_login.js"></script>
+</body>
+</html>

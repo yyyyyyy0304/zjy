@@ -1,0 +1,116 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>知识库管理 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <span class="zhang_guide_open">线上演示版 · 依赖后台接口，未部署</span>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 05</p>
+      <h1 class="zhang_guide_title">知识库管理</h1>
+      <p class="zhang_guide_lead">上传文档构建知识库，列出已入库文件，并基于检索增强生成回答课程相关问题。</p>
+      <div class="zhang_guide_tags">
+        <span>RAG</span>
+        <span>知识库</span>
+        <span>文档检索</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>knowledge.html</em></div>
+      <img src="../images/screenshots/zhang_shot_knowledge.png" alt="知识库管理页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：知识库管理（knowledge.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">页面上半部分是文件上传与已入库文件列表，支持上传与删除；下半部分是提问区，提交问题后由后端检索相关片段并调用模型生成回答。</p>
+      <p class="zhang_guide_p">回答区会展示引用来源片段，方便判断答案是否来自知识库内容，而不是模型的自由发挥。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>文档上传与向量化入库</li>
+        <li>已入库文件列表与删除</li>
+        <li>基于检索增强的问答</li>
+        <li>引用来源展示</li>
+        <li>上传与问答过程的状态提示</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/knowledge/upload</code></td>
+              <td>上传文档并写入知识库</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/knowledge/list</code></td>
+              <td>获取知识库文件列表</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_delete">DELETE</span></td>
+              <td><code>/api/knowledge/delete/:id</code></td>
+              <td>删除指定知识库文件</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/knowledge/ask</code></td>
+              <td>基于知识库检索并生成回答</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>knowledge.html</span>
+        <span>js/knowledge.js</span>
+        <span>backend/routes/knowledge.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_chat.html">← AI 智能聊天</a>
+      <span>前台功能 · 第 5 / 15 篇</span>
+      <a href="zhang_guide_sentiment.html">下一个：商业评论情感分类 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 知识库管理 · knowledge.html');
+  </script>
+</body>
+</html>

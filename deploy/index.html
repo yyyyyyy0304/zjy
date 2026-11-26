@@ -1,0 +1,278 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>张婧雅 · 项目首页 | 田园优选</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/zhang_home.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">项目页面总览</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="#zhang_home_resume">个人简历</a>
+        <a href="#zhang_home_front">纯前端页面</a>
+        <a href="#zhang_home_guides">接口页面说明</a>
+        <a href="#zhang_home_meta">项目信息</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap">
+    <!-- 主视觉 -->
+    <section class="zhang_home_hero">
+      <div class="zhang_home_hero_text">
+        <p class="zhang_home_kicker">高级网页设计 · 全栈项目</p>
+        <h1 class="zhang_home_hero_title">张婧雅 <span>24005240115</span></h1>
+        <p class="zhang_home_lead">本页为 Trae 一键部署的线上静态演示版，仅包含不依赖后台接口的页面：个人简历与 15 份接口页面说明文档；使用后台接口的页面不推送到服务器，需在本地启动服务后访问。</p>
+        <div class="zhang_home_actions">
+          <a class="zhang_home_btn zhang_home_btn_primary" href="./resume.html">查看个人简历</a>
+          <a class="zhang_home_btn zhang_home_btn_ghost" href="#zhang_home_guides">接口页面说明</a>
+        </div>
+      </div>
+      <div class="zhang_home_hero_side">
+        <div class="zhang_home_hero_stat"><strong>2</strong><span>纯静态页面</span></div>
+        <div class="zhang_home_hero_stat"><strong>15</strong><span>接口页面说明文档</span></div>
+        <div class="zhang_home_hero_stat"><strong>17</strong><span>线上可访问页面</span></div>
+      </div>
+    </section>
+
+    <!-- 简历突出区 -->
+    <section class="zhang_home_feature" id="zhang_home_resume">
+      <div class="zhang_home_feature_badge">
+        <span class="zhang_home_badge_word">RESUME</span>
+        <span class="zhang_home_badge_avatar">张</span>
+        <span class="zhang_home_badge_desc">前端开发（实习）<br />AI 应用开发（初级）</span>
+      </div>
+      <div class="zhang_home_feature_body">
+        <span class="zhang_home_flag">重点推荐</span>
+        <h2 class="zhang_home_feature_title">个人简历 · 前端开发工程师（实习）</h2>
+        <p class="zhang_home_feature_desc">根据 Word 简历整理的大学生求职简历，包含个人概述、教育背景、专业技能、AI 工具使用、项目经历与实践荣誉共 7 个模块；页面配有 Canvas 粒子背景动画与滚动入场效果，并支持一键打印 / 保存 PDF。</p>
+        <ul class="zhang_home_nums">
+          <li><strong>7</strong><span>内容模块</span></li>
+          <li><strong>Canvas</strong><span>背景动画</span></li>
+          <li><strong>PDF</strong><span>打印导出</span></li>
+        </ul>
+        <a class="zhang_home_btn zhang_home_btn_primary" href="./resume.html">进入简历页面</a>
+      </div>
+    </section>
+
+    <!-- 纯前端页面 -->
+    <section class="zhang_home_sec" id="zhang_home_front">
+      <div class="zhang_home_sec_head">
+        <h2 class="zhang_section_title">纯前端页面</h2>
+        <p>不依赖后端接口，静态文件即可完整运行；依赖后台接口的页面不在本次线上部署范围内。</p>
+      </div>
+      <div class="zhang_home_front_grid">
+        <a class="zhang_home_front_card zhang_home_front_card_key" href="./resume.html">
+          <span class="zhang_home_front_top"><span class="zhang_home_front_tag">重点</span><span class="zhang_home_front_file">resume.html</span></span>
+          <span class="zhang_home_front_name">个人简历</span>
+          <span class="zhang_home_front_desc">双栏简历布局 + Canvas 粒子背景动画，含 7 个内容模块与打印样式。</span>
+          <span class="zhang_home_front_go">查看简历 →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 接口页面说明 -->
+    <section class="zhang_home_sec" id="zhang_home_guides">
+      <div class="zhang_home_sec_head">
+        <h2 class="zhang_section_title">后台接口页面说明</h2>
+        <p>每个使用后端接口的页面都配有一份独立说明文档，包含页面截图、功能要点与接口清单。</p>
+      </div>
+
+      <h3 class="zhang_home_sub">前台功能说明 · 11 个页面</h3>
+      <div class="zhang_home_guide_grid">
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_database.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_database.png" alt="数据库连接页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">01</span>
+            <span class="zhang_home_gname">数据库连接</span>
+            <span class="zhang_home_gfile">database.html</span>
+            <span class="zhang_home_gdesc">输入账号密码连接 MySQL，展示连接结果与连接信息。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_news.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_news.png" alt="科技新闻列表页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">02</span>
+            <span class="zhang_home_gname">科技新闻列表</span>
+            <span class="zhang_home_gfile">news.html</span>
+            <span class="zhang_home_gdesc">新闻列表展示，支持关键词搜索、分类筛选与分页。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_produce.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_produce.png" alt="农产品图文列表页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">03</span>
+            <span class="zhang_home_gname">农产品图文列表</span>
+            <span class="zhang_home_gfile">produce.html</span>
+            <span class="zhang_home_gdesc">农产品图文卡片列表，支持搜索、分类与分页浏览。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_chat.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_chat.png" alt="AI 智能聊天页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">04</span>
+            <span class="zhang_home_gname">AI 智能聊天</span>
+            <span class="zhang_home_gfile">chat.html</span>
+            <span class="zhang_home_gdesc">与大模型多轮对话，支持流式输出与会话管理。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_knowledge.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_knowledge.png" alt="知识库管理页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">05</span>
+            <span class="zhang_home_gname">知识库管理</span>
+            <span class="zhang_home_gfile">knowledge.html</span>
+            <span class="zhang_home_gdesc">上传文档构建知识库，基于检索增强生成回答问题。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_sentiment.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_sentiment.png" alt="商业评论情感分类页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">06</span>
+            <span class="zhang_home_gname">商业评论情感分类</span>
+            <span class="zhang_home_gfile">sentiment.html</span>
+            <span class="zhang_home_gdesc">输入评论完成情感倾向分类，展示结果与置信度。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_vision.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_vision.png" alt="图像识别页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">07</span>
+            <span class="zhang_home_gname">图像识别</span>
+            <span class="zhang_home_gfile">vision.html</span>
+            <span class="zhang_home_gdesc">上传图片进行识别，展示标签结果与识别历史。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_voice.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_voice.png" alt="语音识别页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">08</span>
+            <span class="zhang_home_gname">语音识别</span>
+            <span class="zhang_home_gfile">voice.html</span>
+            <span class="zhang_home_gdesc">上传语音识别为文字，支持语言选择与历史记录。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_login.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_login.png" alt="用户登录页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">09</span>
+            <span class="zhang_home_gname">用户登录</span>
+            <span class="zhang_home_gfile">login.html</span>
+            <span class="zhang_home_gdesc">账号、密码与图形验证码登录，成功后保存登录态。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_register.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_register.png" alt="用户注册页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">10</span>
+            <span class="zhang_home_gname">用户注册</span>
+            <span class="zhang_home_gfile">register.html</span>
+            <span class="zhang_home_gdesc">注册新用户，校验用户名、密码、昵称与邮箱。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_admin_login.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_admin_login.png" alt="管理员登录页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">11</span>
+            <span class="zhang_home_gname">管理员登录</span>
+            <span class="zhang_home_gfile">admin/login.html</span>
+            <span class="zhang_home_gdesc">管理员账号与验证码登录后台，返回 JWT 令牌。</span>
+          </span>
+        </a>
+      </div>
+
+      <h3 class="zhang_home_sub">管理后台说明 · 4 个页面</h3>
+      <div class="zhang_home_guide_grid zhang_home_guide_grid_admin">
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_admin_dashboard.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_admin_dashboard.png" alt="管理仪表盘页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">01</span>
+            <span class="zhang_home_gname">管理仪表盘</span>
+            <span class="zhang_home_gfile">admin/index.html</span>
+            <span class="zhang_home_gdesc">统计新闻、农产品与用户数量，绘制数据图表。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_admin_news.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_admin_news.png" alt="后台新闻管理页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">02</span>
+            <span class="zhang_home_gname">新闻管理</span>
+            <span class="zhang_home_gfile">admin/news.html</span>
+            <span class="zhang_home_gdesc">后台新闻的搜索、分页、新增、编辑与删除。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_admin_produce.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_admin_produce.png" alt="后台农产品管理页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">03</span>
+            <span class="zhang_home_gname">农产品管理</span>
+            <span class="zhang_home_gfile">admin/produce.html</span>
+            <span class="zhang_home_gdesc">后台农产品的搜索、分页、新增、编辑与删除。</span>
+          </span>
+        </a>
+        <a class="zhang_home_gcard" href="./guide/zhang_guide_admin_users.html">
+          <span class="zhang_home_gthumb"><img src="./images/screenshots/zhang_shot_admin_users.png" alt="后台用户管理页面截图" loading="lazy" /></span>
+          <span class="zhang_home_gbody">
+            <span class="zhang_home_gnum">04</span>
+            <span class="zhang_home_gname">用户管理</span>
+            <span class="zhang_home_gfile">admin/users.html</span>
+            <span class="zhang_home_gdesc">查看注册用户、编辑资料、重置密码与删除。</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 项目信息 -->
+    <section class="zhang_home_sec" id="zhang_home_meta">
+      <h2 class="zhang_section_title">项目信息</h2>
+      <div class="zhang_meta_grid">
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">姓名</span>
+          <span class="zhang_meta_value">张婧雅</span>
+        </div>
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">学号</span>
+          <span class="zhang_meta_value">24005240115</span>
+        </div>
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">项目名称</span>
+          <span class="zhang_meta_value">田园优选 · 农产品销售网站</span>
+        </div>
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">项目类别</span>
+          <span class="zhang_meta_value">自选</span>
+        </div>
+        <div class="zhang_meta_item zhang_meta_wide">
+          <span class="zhang_meta_label">技术栈</span>
+          <span class="zhang_meta_value">原生 HTML / CSS / JavaScript　+　Node.js + Express　+　MySQL　+　Supabase</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script>
+    console.log('[部署版首页] 已加载：纯静态页面，共 17 个线上入口；后台接口页面未部署');
+  </script>
+</body>
+</html>

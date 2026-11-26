@@ -1,0 +1,111 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户登录 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <span class="zhang_guide_open">线上演示版 · 依赖后台接口，未部署</span>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 09</p>
+      <h1 class="zhang_guide_title">用户登录</h1>
+      <p class="zhang_guide_lead">用户使用账号、密码与图形验证码登录，成功后保存令牌并跳转，失败时给出明确提示。</p>
+      <div class="zhang_guide_tags">
+        <span>登录</span>
+        <span>验证码</span>
+        <span>JWT</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>login.html</em></div>
+      <img src="../images/screenshots/zhang_shot_login.png" alt="用户登录页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：用户登录（login.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">登录表单包含用户名、密码与验证码输入，验证码图片由后端生成并带唯一编号，点击可刷新。</p>
+      <p class="zhang_guide_p">登录成功后前端保存令牌与用户信息，并在控制台输出登录结果；未填写完整或验证码错误时会在表单内提示。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>图形验证码加载与点击刷新</li>
+        <li>用户名、密码必填校验</li>
+        <li>登录成功后保存登录态并跳转</li>
+        <li>错误提示与验证码自动刷新</li>
+        <li>控制台输出登录响应</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/auth/captcha</code></td>
+              <td>获取图形验证码与验证码编号</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/auth/login</code></td>
+              <td>校验账号密码与验证码并返回登录令牌</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/auth/me</code></td>
+              <td>获取当前登录用户信息</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>login.html</span>
+        <span>js/login.js</span>
+        <span>backend/routes/auth.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_voice.html">← 语音识别</a>
+      <span>前台功能 · 第 9 / 15 篇</span>
+      <a href="zhang_guide_register.html">下一个：用户注册 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 用户登录 · login.html');
+  </script>
+</body>
+</html>

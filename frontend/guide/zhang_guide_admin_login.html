@@ -1,0 +1,111 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理员登录 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 管理入口</span>
+    <a class="zhang_guide_open" href="../admin/login.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">管理入口 · 11</p>
+      <h1 class="zhang_guide_title">管理员登录</h1>
+      <p class="zhang_guide_lead">管理员使用账号、密码与图形验证码登录后台，成功后返回 2 小时有效的 JWT 令牌并进入管理后台。</p>
+      <div class="zhang_guide_tags">
+        <span>管理员</span>
+        <span>JWT</span>
+        <span>登录鉴权</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>admin/login.html</em></div>
+      <img src="../images/screenshots/zhang_shot_admin_login.png" alt="管理员登录页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：管理员登录（admin/login.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">管理员登录与普通用户登录相互独立，接口会校验管理员表中的账号与 scrypt 密码哈希，并签发带 role 为 admin 的令牌。</p>
+      <p class="zhang_guide_p">登录成功后令牌与管理员信息写入 localStorage，后台布局脚本在每次进入页面时检查登录态，缺失时跳回登录页。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>管理员账号密码与图形验证码校验</li>
+        <li>JWT 令牌有效期 2 小时</li>
+        <li>登录态写入 localStorage</li>
+        <li>未登录访问后台自动跳转登录页</li>
+        <li>登录失败原因提示</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/auth/captcha</code></td>
+              <td>获取图形验证码与验证码编号</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/admin/login</code></td>
+              <td>管理员登录并返回令牌与管理员信息</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/admin/me</code></td>
+              <td>获取当前登录管理员信息</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>admin/login.html</span>
+        <span>admin/js/zhang_admin_login.js</span>
+        <span>admin/js/zhang_admin_api.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_register.html">← 用户注册</a>
+      <span>管理入口 · 第 11 / 15 篇</span>
+      <a href="zhang_guide_admin_dashboard.html">下一个：管理仪表盘 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 管理员登录 · admin/login.html');
+  </script>
+</body>
+</html>

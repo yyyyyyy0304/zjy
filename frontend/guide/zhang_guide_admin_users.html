@@ -1,0 +1,121 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户管理 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 管理后台</span>
+    <a class="zhang_guide_open" href="../admin/users.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">管理后台 · 04</p>
+      <h1 class="zhang_guide_title">用户管理</h1>
+      <p class="zhang_guide_lead">后台用户管理页面，查看注册用户列表，支持搜索、分页、编辑资料、重置密码与删除用户。</p>
+      <div class="zhang_guide_tags">
+        <span>用户管理</span>
+        <span>权限</span>
+        <span>增删改查</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>admin/users.html</em></div>
+      <img src="../images/screenshots/zhang_shot_admin_users.png" alt="用户管理页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：用户管理（admin/users.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">用户列表展示用户名、昵称、邮箱与注册时间，支持按用户名或邮箱搜索；编辑弹窗可修改昵称与邮箱，并可重置密码。</p>
+      <p class="zhang_guide_p">删除用户需要二次确认，避免误删；所有操作都经过管理员令牌校验，未登录时会自动跳回登录页。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>按用户名 / 邮箱搜索</li>
+        <li>分页浏览与总数展示</li>
+        <li>编辑用户资料</li>
+        <li>重置用户密码</li>
+        <li>删除用户二次确认</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/admin/users</code></td>
+              <td>分页查询注册用户列表</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/admin/users</code></td>
+              <td>新增用户</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/admin/users/:id</code></td>
+              <td>查询用户详情</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_put">PUT</span></td>
+              <td><code>/api/admin/users/:id</code></td>
+              <td>修改用户资料或重置密码</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_delete">DELETE</span></td>
+              <td><code>/api/admin/users/:id</code></td>
+              <td>删除用户</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>admin/users.html</span>
+        <span>admin/js/zhang_admin_users.js</span>
+        <span>admin/js/zhang_admin_api.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_admin_produce.html">← 农产品管理</a>
+      <span>管理后台 · 第 15 / 15 篇</span>
+      <a href="../index.html">返回新首页 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 用户管理 · admin/users.html');
+  </script>
+</body>
+</html>

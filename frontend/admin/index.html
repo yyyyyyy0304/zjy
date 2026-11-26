@@ -1,0 +1,105 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>仪表盘 · 田园优选管理后台 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/zhang_admin.css" />
+</head>
+<body class="zhang_admin_body" data-zhang-page="dashboard">
+  <div class="zhang_admin_layout">
+    <aside class="zhang_admin_side" id="zhang_admin_side"></aside>
+    <div class="zhang_admin_main">
+      <header class="zhang_admin_topbar" id="zhang_admin_topbar"></header>
+      <main class="zhang_admin_content">
+        <!-- 统计卡片 -->
+        <section class="zhang_admin_stats">
+          <div class="zhang_admin_stat">
+            <div class="zhang_admin_stat_label">科技新闻总数</div>
+            <div class="zhang_admin_stat_value"><span id="zhang_stat_news">-</span><span class="zhang_admin_stat_unit">条</span></div>
+            <div class="zhang_admin_stat_tip">来自 zhang_news 表</div>
+          </div>
+          <div class="zhang_admin_stat">
+            <div class="zhang_admin_stat_label">农产品总数</div>
+            <div class="zhang_admin_stat_value"><span id="zhang_stat_produce">-</span><span class="zhang_admin_stat_unit">个</span></div>
+            <div class="zhang_admin_stat_tip">来自 zhang_produce 表</div>
+          </div>
+          <div class="zhang_admin_stat">
+            <div class="zhang_admin_stat_label">注册用户总数</div>
+            <div class="zhang_admin_stat_value"><span id="zhang_stat_user">-</span><span class="zhang_admin_stat_unit">人</span></div>
+            <div class="zhang_admin_stat_tip">来自 zhang_user 表</div>
+          </div>
+          <div class="zhang_admin_stat">
+            <div class="zhang_admin_stat_label">新闻累计浏览量</div>
+            <div class="zhang_admin_stat_value"><span id="zhang_stat_views">-</span><span class="zhang_admin_stat_unit">次</span></div>
+            <div class="zhang_admin_stat_tip">SUM(zhang_views) 实时统计</div>
+          </div>
+        </section>
+
+        <!-- 图表区 -->
+        <section class="zhang_admin_chart_grid">
+          <div class="zhang_admin_chart_card">
+            <div class="zhang_admin_chart_title">新闻分类分布</div>
+            <div class="zhang_admin_chart_sub">按 zhang_news 分类聚合，单位：条</div>
+            <div class="zhang_admin_chart_box"><canvas id="zhang_chart_news"></canvas></div>
+          </div>
+          <div class="zhang_admin_chart_card">
+            <div class="zhang_admin_chart_title">农产品库存分类占比</div>
+            <div class="zhang_admin_chart_sub">按 zhang_produce 分类汇总库存，单位：件</div>
+            <div class="zhang_admin_chart_box"><canvas id="zhang_chart_produce"></canvas></div>
+          </div>
+          <div class="zhang_admin_chart_card">
+            <div class="zhang_admin_chart_title">近 30 天用户注册趋势</div>
+            <div class="zhang_admin_chart_sub">按 zhang_user 注册日期聚合，单位：人</div>
+            <div class="zhang_admin_chart_box"><canvas id="zhang_chart_user"></canvas></div>
+          </div>
+          <div class="zhang_admin_chart_card">
+            <div class="zhang_admin_chart_title">农产品库存 Top 5</div>
+            <div class="zhang_admin_chart_sub">库存最高的 5 个农产品，单位：件</div>
+            <div class="zhang_admin_chart_box"><canvas id="zhang_chart_stock"></canvas></div>
+          </div>
+        </section>
+
+        <!-- 最新新闻 -->
+        <section class="zhang_admin_panel" style="margin-top: 18px;">
+          <div class="zhang_admin_panel_head">
+            <div>
+              <div class="zhang_admin_panel_title">最新发布的新闻</div>
+              <div class="zhang_admin_panel_desc">按发布时间倒序展示最近 5 条记录</div>
+            </div>
+            <a class="zhang_admin_btn zhang_admin_btn_ghost zhang_admin_btn_sm" href="./news.html">进入新闻管理</a>
+          </div>
+          <div class="zhang_admin_table_wrap">
+            <table class="zhang_admin_table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>标题</th>
+                  <th>分类</th>
+                  <th>作者</th>
+                  <th>浏览量</th>
+                  <th>发布时间</th>
+                </tr>
+              </thead>
+              <tbody id="zhang_latest_news_body">
+                <tr><td colspan="6"><div class="zhang_admin_empty">数据加载中…</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="zhang_admin_toast_box" id="zhang_admin_toast_box"></div>
+
+  <script src="./js/zhang_admin_api.js"></script>
+  <script src="./js/zhang_admin_layout.js"></script>
+  <script src="./js/zhang_admin_chart.js"></script>
+  <script src="./js/zhang_admin_dashboard.js"></script>
+</body>
+</html>

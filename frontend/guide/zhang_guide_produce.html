@@ -1,0 +1,101 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>农产品图文列表 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <a class="zhang_guide_open" href="../produce.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 03</p>
+      <h1 class="zhang_guide_title">农产品图文列表</h1>
+      <p class="zhang_guide_lead">农产品图文列表，展示商品图片、名称、产地、价格与简介，支持搜索、分类筛选与分页浏览。</p>
+      <div class="zhang_guide_tags">
+        <span>农产品</span>
+        <span>图文列表</span>
+        <span>分页</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>produce.html</em></div>
+      <img src="../images/screenshots/zhang_shot_produce.png" alt="农产品图文列表页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：农产品图文列表（produce.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">页面以卡片形式展示农产品，图片统一使用固定比例容器，保证不同尺寸图片排列整齐；点击卡片进入对应详情页查看完整介绍。</p>
+      <p class="zhang_guide_p">搜索与分类条件通过查询参数传给后端，后端完成筛选与分页后返回当前页数据与总条数。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>图文卡片：封面、名称、产地与价格</li>
+        <li>关键词搜索与分类筛选</li>
+        <li>分页切换与总数展示</li>
+        <li>详情跳转：按商品编号请求详情</li>
+        <li>图片懒加载与失败占位</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/produce</code></td>
+              <td>分页查询农产品列表，支持 keyword、category、page、pageSize 参数</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>produce.html</span>
+        <span>js/produce.js</span>
+        <span>backend/routes/produce.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_news.html">← 科技新闻列表</a>
+      <span>前台功能 · 第 3 / 15 篇</span>
+      <a href="zhang_guide_chat.html">下一个：AI 智能聊天 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 农产品图文列表 · produce.html');
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新闻管理 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 管理后台</span>
+    <a class="zhang_guide_open" href="../admin/news.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">管理后台 · 02</p>
+      <h1 class="zhang_guide_title">新闻管理</h1>
+      <p class="zhang_guide_lead">后台新闻管理页面，支持按标题搜索、分页浏览，以及新增、编辑与删除新闻。</p>
+      <div class="zhang_guide_tags">
+        <span>新闻管理</span>
+        <span>增删改查</span>
+        <span>分页</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>admin/news.html</em></div>
+      <img src="../images/screenshots/zhang_shot_admin_news.png" alt="新闻管理页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：新闻管理（admin/news.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">列表区域展示新闻编号、标题、分类、来源与发布时间，顶部提供搜索与新增按钮；编辑与删除通过弹窗完成，避免误操作。</p>
+      <p class="zhang_guide_p">所有写操作都需要携带管理员令牌，接口返回统一 JSON 结构，页面根据 code 判断成功与否并给出提示。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>按标题关键词搜索</li>
+        <li>分页浏览与总条数展示</li>
+        <li>新增与编辑新闻弹窗</li>
+        <li>删除二次确认</li>
+        <li>操作结果提示与列表刷新</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/admin/news</code></td>
+              <td>分页查询新闻列表</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/admin/news</code></td>
+              <td>新增新闻</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/admin/news/:id</code></td>
+              <td>查询新闻详情</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_put">PUT</span></td>
+              <td><code>/api/admin/news/:id</code></td>
+              <td>修改新闻</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_delete">DELETE</span></td>
+              <td><code>/api/admin/news/:id</code></td>
+              <td>删除新闻</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>admin/news.html</span>
+        <span>admin/js/zhang_admin_news.js</span>
+        <span>admin/js/zhang_admin_api.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_admin_dashboard.html">← 管理仪表盘</a>
+      <span>管理后台 · 第 13 / 15 篇</span>
+      <a href="zhang_guide_admin_produce.html">下一个：农产品管理 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 新闻管理 · admin/news.html');
+  </script>
+</body>
+</html>

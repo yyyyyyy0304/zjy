@@ -1,0 +1,101 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商业评论情感分类 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <a class="zhang_guide_open" href="../sentiment.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 06</p>
+      <h1 class="zhang_guide_title">商业评论情感分类</h1>
+      <p class="zhang_guide_lead">输入一段商业评论，调用后端情感分析接口判断正向、负向或中性，并展示置信度与关键词。</p>
+      <div class="zhang_guide_tags">
+        <span>情感分析</span>
+        <span>文本分类</span>
+        <span>模型接口</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>sentiment.html</em></div>
+      <img src="../images/screenshots/zhang_shot_sentiment.png" alt="商业评论情感分类页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：商业评论情感分类（sentiment.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">页面提供多行文本输入与示例按钮，提交后由后端调用模型完成情感分类，前端渲染分类结果、置信度与提取到的关键词。</p>
+      <p class="zhang_guide_p">结果区域使用不同颜色区分情感倾向，并保留本次请求的原始响应，便于在控制台核对模型输出。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>评论区文本输入与示例填充</li>
+        <li>情感分类结果与置信度可视化</li>
+        <li>关键词提取结果展示</li>
+        <li>不同情感倾向的配色区分</li>
+        <li>接口异常提示与控制台日志</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/sentiment/analyze</code></td>
+              <td>对商业评论进行情感分类并返回置信度与关键词</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>sentiment.html</span>
+        <span>js/sentiment.js</span>
+        <span>backend/routes/sentiment.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_knowledge.html">← 知识库管理</a>
+      <span>前台功能 · 第 6 / 15 篇</span>
+      <a href="zhang_guide_vision.html">下一个：图像识别 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 商业评论情感分类 · sentiment.html');
+  </script>
+</body>
+</html>

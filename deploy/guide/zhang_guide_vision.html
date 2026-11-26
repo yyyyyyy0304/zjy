@@ -1,0 +1,106 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图像识别 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <span class="zhang_guide_open">线上演示版 · 依赖后台接口，未部署</span>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 07</p>
+      <h1 class="zhang_guide_title">图像识别</h1>
+      <p class="zhang_guide_lead">上传图片进行图像识别，展示识别到的标签、置信度以及历史识别记录。</p>
+      <div class="zhang_guide_tags">
+        <span>图像识别</span>
+        <span>多模态</span>
+        <span>历史记录</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>vision.html</em></div>
+      <img src="../images/screenshots/zhang_shot_vision.png" alt="图像识别页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：图像识别（vision.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">用户选择本地图片后先在前端预览，再提交到后端由视觉语言模型输出结构化识别结果，页面把标签与置信度渲染为列表。</p>
+      <p class="zhang_guide_p">识别历史从后端查询并倒序展示，方便对比多次识别结果；上传大小与格式在前端先做一次校验。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>本地图片选择与预览</li>
+        <li>识别标签与置信度列表</li>
+        <li>超过大小限制时的前置提示</li>
+        <li>历史识别记录查询</li>
+        <li>识别中禁用按钮防止重复提交</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/vision/analyze</code></td>
+              <td>上传图片并返回结构化识别结果</td>
+            </tr>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/vision/history</code></td>
+              <td>查询历史识别记录</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>vision.html</span>
+        <span>js/vision.js</span>
+        <span>backend/routes/vision.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_sentiment.html">← 商业评论情感分类</a>
+      <span>前台功能 · 第 7 / 15 篇</span>
+      <a href="zhang_guide_voice.html">下一个：语音识别 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 图像识别 · vision.html');
+  </script>
+</body>
+</html>

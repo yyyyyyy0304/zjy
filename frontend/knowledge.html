@@ -1,0 +1,143 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-12 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>知识库管理（RAG）· 田园优选 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">知识库管理（RAG）</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="./index.html">返回首页</a>
+        <a href="#zhang_kb_api">接口信息</a>
+        <a href="#zhang_kb_upload">上传文件</a>
+        <a href="#zhang_kb_chat">知识库问答</a>
+        <a href="./login.html">登录</a>
+        <a href="./register.html">注册</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap">
+    <!-- 接口信息 -->
+    <section class="zhang_section" id="zhang_kb_api">
+      <h2 class="zhang_section_title">后端接口</h2>
+      <div class="zhang_api_box">
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">POST</span>
+          <a class="zhang_api_url" href="/api/knowledge/upload" target="_blank" rel="noopener">http://localhost:8115/api/knowledge/upload</a>
+        </div>
+        <div class="zhang_api_row" style="margin-top:10px">
+          <span class="zhang_api_method">GET</span>
+          <a class="zhang_api_url" href="/api/knowledge/list" target="_blank" rel="noopener">http://localhost:8115/api/knowledge/list</a>
+        </div>
+        <div class="zhang_api_row" style="margin-top:10px">
+          <span class="zhang_api_method">DELETE</span>
+          <a class="zhang_api_url" href="/api/knowledge/delete/:id" target="_blank" rel="noopener">http://localhost:8115/api/knowledge/delete/:id</a>
+        </div>
+        <div class="zhang_api_row" style="margin-top:10px">
+          <span class="zhang_api_method">POST</span>
+          <a class="zhang_api_url" href="/api/knowledge/ask" target="_blank" rel="noopener">http://localhost:8115/api/knowledge/ask</a>
+        </div>
+        <p class="zhang_api_desc">支持上传 <code>txt</code>、<code>pdf</code>、<code>doc</code>、<code>docx</code> 格式的知识库文件，后端自动解析、分块、检索，基于知识库内容进行 RAG 问答。在浏览器控制台输出发送给大模型的数据和从大模型接收到的数据。</p>
+      </div>
+    </section>
+
+    <!-- 文件上传 -->
+    <section class="zhang_section" id="zhang_kb_upload">
+      <h2 class="zhang_section_title">知识库文件上传</h2>
+
+      <div class="zhang_kb_upload_area" id="zhang_kb_drop_zone">
+        <div class="zhang_kb_upload_icon">+</div>
+        <p class="zhang_kb_upload_text">点击选择文件或拖拽文件到此处</p>
+        <p class="zhang_kb_upload_hint">支持 txt、pdf、doc、docx，单个文件最大 20MB</p>
+        <input class="zhang_kb_file_input" id="zhang_kb_file_input" type="file" accept=".txt,.pdf,.doc,.docx" hidden />
+      </div>
+
+      <div class="zhang_alert zhang_alert_ok" id="zhang_kb_upload_ok" hidden>
+        <span class="zhang_alert_icon">ok</span>
+        <span class="zhang_alert_text" id="zhang_kb_upload_ok_text"></span>
+      </div>
+
+      <div class="zhang_alert zhang_alert_err" id="zhang_kb_upload_err" hidden>
+        <span class="zhang_alert_icon">!</span>
+        <span class="zhang_alert_text" id="zhang_kb_upload_err_text"></span>
+      </div>
+
+      <!-- 已上传文件列表 -->
+      <div class="zhang_kb_file_list_box">
+        <h3 class="zhang_kb_sub_title">已上传文件 <span class="zhang_count" id="zhang_kb_count">0 个文件</span></h3>
+        <div class="zhang_kb_file_list" id="zhang_kb_file_list">
+          <div class="zhang_empty">暂无知识库文件，请上传</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 知识库问答 -->
+    <section class="zhang_section" id="zhang_kb_chat">
+      <h2 class="zhang_section_title">知识库问答 <span class="zhang_count" id="zhang_kb_chat_count">0 条消息</span></h2>
+
+      <div class="zhang_chat_list" id="zhang_kb_chat_list">
+        <div class="zhang_chat_welcome">
+          <div class="zhang_chat_welcome_icon">AI</div>
+          <p class="zhang_chat_welcome_text">上传知识库文件后，可以基于文件内容向我提问！</p>
+        </div>
+      </div>
+
+      <div class="zhang_alert zhang_alert_err" id="zhang_kb_chat_alert" hidden>
+        <span class="zhang_alert_icon">!</span>
+        <span class="zhang_alert_text" id="zhang_kb_chat_alert_text"></span>
+      </div>
+
+      <div class="zhang_chat_input_area">
+        <textarea class="zhang_input zhang_chat_input" id="zhang_kb_chat_input" rows="2" placeholder="基于知识库提问，按 Enter 发送…"></textarea>
+        <button class="zhang_btn zhang_chat_send" id="zhang_kb_ask_btn" type="button">提问</button>
+        <button class="zhang_btn zhang_btn_ghost zhang_chat_clear" id="zhang_kb_clear_btn" type="button">清空</button>
+      </div>
+    </section>
+
+    <!-- 控制台数据展示 -->
+    <section class="zhang_section">
+      <h2 class="zhang_section_title">控制台数据</h2>
+      <div class="zhang_chat_console_info">
+        <p>发送给大模型的数据和从大模型接收到的数据已输出到浏览器控制台（<code>F12</code> → Console）。</p>
+        <p>下方亦可展开查看最近一次 RAG 问答的原始数据。</p>
+      </div>
+      <details class="zhang_raw">
+        <summary>查看最近一次发送给大模型的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_kb_send_raw">暂无数据</pre>
+      </details>
+      <details class="zhang_raw">
+        <summary>查看最近一次从大模型接收到的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_kb_recv_raw">暂无数据</pre>
+      </details>
+      <details class="zhang_raw">
+        <summary>查看匹配到的知识库片段</summary>
+        <pre class="zhang_raw_code" id="zhang_kb_matched_raw">暂无数据</pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script src="./js/knowledge.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理仪表盘 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 管理后台</span>
+    <a class="zhang_guide_open" href="../admin/index.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">管理后台 · 01</p>
+      <h1 class="zhang_guide_title">管理仪表盘</h1>
+      <p class="zhang_guide_lead">后台首页仪表盘，汇总新闻、农产品与注册用户数量，并用图表展示近 30 天数据变化。</p>
+      <div class="zhang_guide_tags">
+        <span>仪表盘</span>
+        <span>统计图表</span>
+        <span>管理后台</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>admin/index.html</em></div>
+      <img src="../images/screenshots/zhang_shot_admin_dashboard.png" alt="管理仪表盘页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：管理仪表盘（admin/index.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">仪表盘顶部是三类实体的总量统计卡，下方使用 Canvas / ECharts 图表展示近期新闻发布与用户注册趋势。</p>
+      <p class="zhang_guide_p">所有数据来自后台统计接口，页面在加载时统一请求并渲染，请求失败时显示错误提示而不是空白区域。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>新闻、农产品、用户总量统计</li>
+        <li>近 30 天趋势图表</li>
+        <li>加载过程骨架 / 提示</li>
+        <li>数字滚动动画</li>
+        <li>接口异常提示</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_get">GET</span></td>
+              <td><code>/api/admin/dashboard</code></td>
+              <td>获取后台统计数量与趋势数据</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>admin/index.html</span>
+        <span>admin/js/zhang_admin_dashboard.js</span>
+        <span>admin/js/zhang_admin_layout.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_admin_login.html">← 管理员登录</a>
+      <span>管理后台 · 第 12 / 15 篇</span>
+      <a href="zhang_guide_admin_news.html">下一个：新闻管理 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] 管理仪表盘 · admin/index.html');
+  </script>
+</body>
+</html>

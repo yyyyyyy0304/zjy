@@ -1,0 +1,730 @@
+/*
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+说明：个人简历页面样式，含 Canvas 背景动画、双栏简历布局、滚动入场动画与打印样式
+*/
+
+:root {
+  --zr_bg: #edf3ee;
+  --zr_paper: rgba(255, 255, 255, 0.88);
+  --zr_ink: #16332a;
+  --zr_muted: #5d7268;
+  --zr_line: rgba(22, 51, 42, 0.12);
+  --zr_accent: #1f9d6b;
+  --zr_accent_soft: rgba(31, 157, 107, 0.12);
+  --zr_deep: #0e3527;
+  --zr_deep_2: #14442f;
+  --zr_gold: #b8822c;
+  --zr_side_text: #d8ece1;
+  --zr_side_muted: #9dc3b0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", Arial, sans-serif;
+  color: var(--zr_ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(31, 157, 107, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 88% 92%, rgba(184, 130, 44, 0.1) 0%, transparent 45%),
+    linear-gradient(160deg, #f5f8f4 0%, #eaf1ec 52%, #e6efe9 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Canvas 背景 ===== */
+.zhang_resume_canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.zhang_resume_orb {
+  position: fixed;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: zhang_resume_float 16s ease-in-out infinite;
+}
+
+.zhang_resume_orb_a {
+  top: -120px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  background: rgba(31, 157, 107, 0.22);
+}
+
+.zhang_resume_orb_b {
+  right: -140px;
+  bottom: -160px;
+  width: 480px;
+  height: 480px;
+  background: rgba(184, 130, 44, 0.16);
+  animation-delay: -6s;
+}
+
+@keyframes zhang_resume_float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(24px, -26px, 0) scale(1.06); }
+}
+
+/* ===== 顶部工具条 ===== */
+.zhang_resume_bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px clamp(16px, 4vw, 44px);
+  background: rgba(245, 249, 246, 0.72);
+  border-bottom: 1px solid rgba(22, 51, 42, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.zhang_resume_bar_home,
+.zhang_resume_bar_title,
+.zhang_resume_bar_print {
+  font-size: 14px;
+}
+
+.zhang_resume_bar_home {
+  color: var(--zr_deep);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(22, 51, 42, 0.16);
+  background: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.zhang_resume_bar_home:hover {
+  color: var(--zr_accent);
+  border-color: var(--zr_accent);
+  transform: translateX(-2px);
+}
+
+.zhang_resume_bar_title {
+  color: var(--zr_muted);
+  letter-spacing: 2px;
+}
+
+.zhang_resume_bar_print {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 999px;
+  color: #f2fbf6;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--zr_accent) 0%, #157a52 100%);
+  box-shadow: 0 10px 24px rgba(31, 157, 107, 0.26);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.zhang_resume_bar_print:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(31, 157, 107, 0.34);
+}
+
+/* ===== 简历纸张 ===== */
+.zhang_resume_page {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 326px minmax(0, 1fr);
+  width: min(1140px, calc(100% - 48px));
+  margin: 34px auto 26px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--zr_paper);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 34px 80px rgba(16, 45, 32, 0.14),
+    0 4px 14px rgba(16, 45, 32, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== 左侧深色栏 ===== */
+.zhang_resume_side {
+  position: relative;
+  padding: 40px 28px 36px;
+  color: var(--zr_side_text);
+  background:
+    radial-gradient(circle at 82% 6%, rgba(31, 157, 107, 0.4) 0%, transparent 48%),
+    linear-gradient(168deg, var(--zr_deep_2) 0%, var(--zr_deep) 62%, #0a2a1d 100%);
+}
+
+.zhang_resume_side::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(216, 236, 225, 0.12);
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.zhang_resume_avatar {
+  position: relative;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 700;
+  color: #f4fff9;
+  letter-spacing: 2px;
+  background: linear-gradient(140deg, rgba(31, 157, 107, 0.85) 0%, rgba(10, 55, 38, 0.95) 100%);
+  border: 2px solid rgba(216, 236, 225, 0.35);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
+
+.zhang_resume_name {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 6px;
+  color: #f4fff9;
+}
+
+.zhang_resume_job {
+  margin: 14px 0 4px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--zr_side_muted);
+}
+
+.zhang_resume_job_main {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #c8f3d9;
+}
+
+.zhang_resume_job_sub {
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--zr_side_muted);
+}
+
+.zhang_resume_contact {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(216, 236, 225, 0.16);
+}
+
+.zhang_resume_contact li {
+  display: flex;
+  gap: 10px;
+  padding: 7px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.zhang_resume_c_label {
+  flex: 0 0 48px;
+  color: var(--zr_side_muted);
+  letter-spacing: 1px;
+}
+
+.zhang_resume_side_block {
+  margin-top: 26px;
+}
+
+.zhang_resume_side_title {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #f4fff9;
+  border-bottom: 1px dashed rgba(216, 236, 225, 0.22);
+}
+
+.zhang_resume_chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zhang_resume_chip {
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #d6f4e3;
+  background: rgba(31, 157, 107, 0.22);
+  border: 1px solid rgba(120, 226, 174, 0.32);
+}
+
+.zhang_resume_side_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.zhang_resume_side_list li {
+  position: relative;
+  padding: 5px 0 5px 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--zr_side_text);
+}
+
+.zhang_resume_side_list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #6fd6a4;
+}
+
+.zhang_resume_side_text {
+  margin: 0 0 6px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--zr_side_text);
+  word-break: break-all;
+}
+
+/* ===== 右侧正文 ===== */
+.zhang_resume_main {
+  padding: 38px 42px 44px;
+}
+
+.zhang_resume_sec {
+  margin-bottom: 30px;
+}
+
+.zhang_resume_sec:last-child {
+  margin-bottom: 0;
+}
+
+.zhang_resume_h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  font-size: 19px;
+  letter-spacing: 3px;
+  color: var(--zr_deep);
+}
+
+.zhang_resume_h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(31, 157, 107, 0.4) 0%, rgba(31, 157, 107, 0) 100%);
+}
+
+.zhang_resume_h2_num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: #ffffff;
+  background: linear-gradient(140deg, var(--zr_accent) 0%, #136f4b 100%);
+  box-shadow: 0 6px 14px rgba(31, 157, 107, 0.28);
+}
+
+/* 个人概述 */
+.zhang_resume_overview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.zhang_resume_ov_card {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(31, 157, 107, 0.05);
+  border: 1px solid rgba(31, 157, 107, 0.14);
+}
+
+.zhang_resume_ov_card h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--zr_accent);
+  letter-spacing: 1px;
+}
+
+.zhang_resume_ov_card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--zr_muted);
+}
+
+/* 教育背景 */
+.zhang_resume_edu {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--zr_line);
+}
+
+.zhang_resume_edu_head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.zhang_resume_edu_school {
+  margin: 0;
+  font-size: 16px;
+  color: var(--zr_ink);
+}
+
+.zhang_resume_edu_major {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: var(--zr_muted);
+}
+
+.zhang_resume_edu_meta {
+  margin: 10px 0 8px;
+  font-size: 13px;
+  color: var(--zr_accent);
+  font-weight: 700;
+}
+
+/* 时间标签 */
+.zhang_resume_period {
+  flex: 0 0 auto;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--zr_accent);
+  background: var(--zr_accent_soft);
+  border: 1px solid rgba(31, 157, 107, 0.2);
+}
+
+.zhang_resume_p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--zr_muted);
+}
+
+.zhang_resume_p strong {
+  color: var(--zr_ink);
+}
+
+.zhang_resume_intro {
+  padding: 16px 18px;
+  border-left: 3px solid var(--zr_accent);
+  border-radius: 0 12px 12px 0;
+  background: rgba(31, 157, 107, 0.05);
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: #33564a;
+}
+
+/* 专业技能 */
+.zhang_resume_skills {
+  margin: 0;
+}
+
+.zhang_resume_skill_row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--zr_line);
+}
+
+.zhang_resume_skill_row:last-child {
+  border-bottom: none;
+}
+
+.zhang_resume_skill_row dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--zr_deep);
+  line-height: 1.7;
+}
+
+.zhang_resume_skill_row dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--zr_muted);
+}
+
+/* AI 工具流程 */
+.zhang_resume_flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.zhang_resume_flow_step {
+  position: relative;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: #10503a;
+  background: rgba(31, 157, 107, 0.1);
+  border: 1px solid rgba(31, 157, 107, 0.22);
+}
+
+.zhang_resume_flow_step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: rgba(31, 157, 107, 0.55);
+}
+
+/* 列表 */
+.zhang_resume_bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.zhang_resume_bullets li {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--zr_muted);
+}
+
+.zhang_resume_bullets li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--zr_accent);
+  transform: rotate(45deg);
+}
+
+.zhang_resume_bullets strong {
+  color: var(--zr_ink);
+}
+
+/* 项目经历 */
+.zhang_resume_projects {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zhang_resume_project {
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--zr_line);
+  background: rgba(255, 255, 255, 0.66);
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.zhang_resume_project:hover {
+  border-color: rgba(31, 157, 107, 0.36);
+  box-shadow: 0 14px 30px rgba(16, 45, 32, 0.08);
+  transform: translateY(-2px);
+}
+
+.zhang_resume_proj_head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.zhang_resume_proj_head h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--zr_ink);
+  letter-spacing: 1px;
+}
+
+.zhang_resume_proj_role {
+  margin: 5px 0 6px;
+  font-size: 12.5px;
+  color: var(--zr_muted);
+}
+
+.zhang_resume_stack {
+  margin: 0 0 8px;
+  padding: 6px 10px;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #136f4b;
+  background: rgba(31, 157, 107, 0.08);
+  border: 1px dashed rgba(31, 157, 107, 0.28);
+}
+
+.zhang_resume_more {
+  margin: 14px 0 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--zr_muted);
+  background: rgba(184, 130, 44, 0.07);
+  border: 1px solid rgba(184, 130, 44, 0.18);
+}
+
+.zhang_resume_more strong {
+  color: var(--zr_gold);
+}
+
+/* ===== 滚动入场 ===== */
+.zhang_resume_reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.zhang_resume_reveal.zhang_resume_in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 页脚 ===== */
+.zhang_resume_footer {
+  position: relative;
+  z-index: 2;
+  padding: 8px 20px 34px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #7d9187;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 980px) {
+  .zhang_resume_page {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 32px);
+    margin: 22px auto;
+  }
+
+  .zhang_resume_side {
+    padding: 32px 24px 30px;
+  }
+
+  .zhang_resume_main {
+    padding: 28px 22px 34px;
+  }
+
+  .zhang_resume_overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .zhang_resume_skill_row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  .zhang_resume_bar {
+    padding: 10px 14px;
+  }
+
+  .zhang_resume_bar_title {
+    display: none;
+  }
+
+  .zhang_resume_page {
+    width: calc(100% - 20px);
+    border-radius: 18px;
+  }
+
+  .zhang_resume_edu_head,
+  .zhang_resume_proj_head {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zhang_resume_h2 {
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ===== 打印 ===== */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .zhang_resume_canvas,
+  .zhang_resume_orb,
+  .zhang_resume_bar,
+  .zhang_resume_footer {
+    display: none !important;
+  }
+
+  .zhang_resume_page {
+    width: 100%;
+    margin: 0;
+    grid-template-columns: 280px minmax(0, 1fr);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: #ffffff;
+  }
+
+  .zhang_resume_side {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .zhang_resume_reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .zhang_resume_sec,
+  .zhang_resume_project {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

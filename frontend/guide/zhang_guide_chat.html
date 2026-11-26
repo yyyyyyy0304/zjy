@@ -1,0 +1,101 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 智能聊天 · 页面说明 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/zhang_guide.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_guide_bar">
+    <a class="zhang_guide_back" href="../index.html">← 返回新首页</a>
+    <span class="zhang_guide_meta">页面说明 · 前台功能</span>
+    <a class="zhang_guide_open" href="../chat.html">打开原页面 →</a>
+  </header>
+
+  <main class="zhang_guide_wrap">
+    <div class="zhang_guide_head">
+      <p class="zhang_guide_kicker">前台功能 · 04</p>
+      <h1 class="zhang_guide_title">AI 智能聊天</h1>
+      <p class="zhang_guide_lead">与后端大模型接口进行多轮对话，支持流式输出、清空会话与错误提示，消息按角色区分展示。</p>
+      <div class="zhang_guide_tags">
+        <span>大模型</span>
+        <span>流式输出</span>
+        <span>对话</span>
+      </div>
+    </div>
+
+    <figure class="zhang_guide_figure">
+      <div class="zhang_guide_chrome"><i></i><i></i><i></i><em>chat.html</em></div>
+      <img src="../images/screenshots/zhang_shot_chat.png" alt="AI 智能聊天页面截图" />
+      <figcaption class="zhang_guide_caption">页面截图：AI 智能聊天（chat.html）</figcaption>
+    </figure>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">页面说明</h2>
+      <p class="zhang_guide_p">聊天页把用户输入发送到后端，后端代理大模型接口并按流式返回内容；前端逐段追加到当前气泡中，形成打字机效果。</p>
+      <p class="zhang_guide_p">对话按用户与助手两种角色渲染，发送中会禁用输入并展示等待状态，接口异常时给出明确提示，避免用户误以为消息已发送。</p>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">功能要点</h2>
+      <ul class="zhang_guide_list">
+        <li>多轮对话：保留上下文消息列表</li>
+        <li>流式输出：逐段渲染模型返回内容</li>
+        <li>角色区分：用户与助手气泡样式不同</li>
+        <li>异常提示：网络或模型错误可见</li>
+        <li>清空会话：一键重置对话</li>
+      </ul>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">接口说明</h2>
+      <div class="zhang_guide_table_wrap">
+        <table class="zhang_guide_table">
+          <thead>
+            <tr><th>方法</th><th>接口路径</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="zhang_guide_method zhang_guide_method_post">POST</span></td>
+              <td><code>/api/chat</code></td>
+              <td>发送消息并代理大模型生成回复，支持流式返回</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="zhang_guide_sec">
+      <h2 class="zhang_guide_h2">相关文件</h2>
+      <div class="zhang_guide_files">
+        <span>chat.html</span>
+        <span>js/chat.js</span>
+        <span>backend/routes/chat.js</span>
+      </div>
+    </section>
+
+    <nav class="zhang_guide_pager">
+      <a href="zhang_guide_produce.html">← 农产品图文列表</a>
+      <span>前台功能 · 第 4 / 15 篇</span>
+      <a href="zhang_guide_knowledge.html">下一个：知识库管理 →</a>
+    </nav>
+  </main>
+
+  <footer class="zhang_guide_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站　|　接口页面说明</p>
+  </footer>
+
+  <script src="../js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面说明] AI 智能聊天 · chat.html');
+  </script>
+</body>
+</html>

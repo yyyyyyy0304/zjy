@@ -1,0 +1,162 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-16 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图像识别 · 田园优选 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">图像识别</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="./index.html">返回首页</a>
+        <a href="#zhang_vision_api">接口信息</a>
+        <a href="#zhang_vision_input">上传图片</a>
+        <a href="#zhang_vision_result">识别结果</a>
+        <a href="#zhang_vision_history">历史记录</a>
+        <a href="./login.html">登录</a>
+        <a href="./register.html">注册</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap">
+    <!-- 接口信息 -->
+    <section class="zhang_section" id="zhang_vision_api">
+      <h2 class="zhang_section_title">后端接口</h2>
+      <div class="zhang_api_box">
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">POST</span>
+          <a class="zhang_api_url" href="/api/vision/analyze" target="_blank" rel="noopener">http://localhost:8115/api/vision/analyze</a>
+        </div>
+        <p class="zhang_api_desc">上传图片（multipart 字段名 <code>file</code>，可选字段 <code>question</code>），后端把图片转为 base64 后提交给视觉语言模型 <code>Qwen/Qwen3-VL-8B-Instruct</code>，识别农产品名称、品类、新鲜度与标签，输出结构化 JSON 并写入数据库。</p>
+        <div class="zhang_api_row">
+          <span class="zhang_api_method">GET</span>
+          <a class="zhang_api_url" href="/api/vision/history" target="_blank" rel="noopener">http://localhost:8115/api/vision/history</a>
+        </div>
+        <p class="zhang_api_desc">查询最近的图像识别记录（默认 20 条），数据来自 MySQL 表 <code>zhang_vision_record</code>。</p>
+      </div>
+    </section>
+
+    <!-- 上传图片 -->
+    <section class="zhang_section" id="zhang_vision_input">
+      <h2 class="zhang_section_title">上传图片</h2>
+
+      <div class="zhang_kb_upload_area" id="zhang_vision_drop_zone">
+        <div class="zhang_kb_upload_icon">＋</div>
+        <p class="zhang_kb_upload_text">点击选择图片或拖拽到此处</p>
+        <p class="zhang_kb_upload_hint">支持 jpg / png / webp / bmp 格式，单个文件不超过 10MB</p>
+        <input class="zhang_kb_file_input" id="zhang_vision_file_input" type="file" accept="image/*" hidden />
+      </div>
+
+      <div class="zhang_vision_preview" id="zhang_vision_preview_box" hidden>
+        <img class="zhang_vision_img" id="zhang_vision_preview" alt="待识别图片预览" />
+        <div class="zhang_vision_preview_info" id="zhang_vision_preview_info">—</div>
+      </div>
+
+      <div class="zhang_form_item" style="margin-top:18px">
+        <label class="zhang_form_label" for="zhang_vision_question">附加问题（可选，留空则按默认规则识别）</label>
+        <input class="zhang_input" id="zhang_vision_question" type="text" placeholder="例如：这张图里的番茄新鲜吗？适合做沙拉吗？" maxlength="200" />
+      </div>
+
+      <div class="zhang_alert zhang_alert_err" id="zhang_vision_alert" hidden>
+        <span class="zhang_alert_icon">!</span>
+        <span class="zhang_alert_text" id="zhang_vision_alert_text"></span>
+      </div>
+
+      <div class="zhang_chat_console_info" style="margin-top:16px">
+        <p>可直接下载示例图片测试识别效果：</p>
+      </div>
+      <div class="zhang_sample_files">
+        <a class="zhang_sample_file" href="./files/示例图片-有机番茄.jpg" download>示例图片-有机番茄.jpg</a>
+        <a class="zhang_sample_file" href="./files/示例图片-蔬菜包装箱.jpg" download>示例图片-蔬菜包装箱.jpg</a>
+      </div>
+    </section>
+
+    <!-- 加载中 -->
+    <section class="zhang_section" id="zhang_vision_loading" style="display:none">
+      <h2 class="zhang_section_title">正在识别…</h2>
+      <div class="zhang_sent_loading_box">
+        <div class="zhang_chat_typing"><span></span><span></span><span></span></div>
+        <p class="zhang_sent_loading_text">正在调用视觉语言模型识别图片内容，通常需要 5～15 秒…</p>
+      </div>
+    </section>
+
+    <!-- 识别结果 -->
+    <section class="zhang_section" id="zhang_vision_result" style="display:none">
+      <h2 class="zhang_section_title">识别结果 <span class="zhang_count" id="zhang_vision_cost">—</span></h2>
+
+      <div class="zhang_result_card">
+        <div class="zhang_result_head">
+          <span class="zhang_result_label" id="zhang_vision_name">—</span>
+          <span class="zhang_result_meta" id="zhang_vision_confidence">—</span>
+        </div>
+        <div class="zhang_intent_grid" id="zhang_vision_fields"></div>
+        <p class="zhang_result_text" id="zhang_vision_desc">—</p>
+        <div class="zhang_tag_list" id="zhang_vision_tags"></div>
+      </div>
+    </section>
+
+    <!-- 历史记录 -->
+    <section class="zhang_section" id="zhang_vision_history">
+      <h2 class="zhang_section_title">识别历史记录 <span class="zhang_count" id="zhang_vision_history_count">0 条</span></h2>
+      <div class="zhang_sent_table_wrap">
+        <table class="zhang_sent_table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>图片文件</th>
+              <th>主体名称</th>
+              <th>品类</th>
+              <th>新鲜度</th>
+              <th>置信度</th>
+              <th>时间</th>
+            </tr>
+          </thead>
+          <tbody id="zhang_vision_history_body">
+            <tr><td colspan="7" class="zhang_table_empty">加载中…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 控制台数据 -->
+    <section class="zhang_section">
+      <h2 class="zhang_section_title">控制台数据</h2>
+      <div class="zhang_chat_console_info">
+        <p>发送给大模型的数据和从大模型接收到的数据已输出到浏览器控制台（<code>F12</code> → Console）。</p>
+        <p>下方亦可展开查看最近一次的原始数据。</p>
+      </div>
+      <details class="zhang_raw">
+        <summary>查看最近一次发送给大模型的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_vision_send_raw">暂无数据</pre>
+      </details>
+      <details class="zhang_raw">
+        <summary>查看最近一次从大模型接收到的数据</summary>
+        <pre class="zhang_raw_code" id="zhang_vision_recv_raw">暂无数据</pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script src="./js/vision.js"></script>
+</body>
+</html>

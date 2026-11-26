@@ -1,0 +1,101 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-09 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据库连接 · 田园优选 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">数据库连接</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="./index.html">返回首页</a>
+        <a href="./login.html">登录</a>
+        <a href="./register.html">注册</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap zhang_wrap_narrow">
+    <section class="zhang_section">
+      <h2 class="zhang_section_title">连接 MySQL 数据库</h2>
+      <div class="zhang_panel">
+        <form class="zhang_form" id="zhang_db_form" novalidate>
+          <div class="zhang_form_item">
+            <label class="zhang_form_label" for="zhang_db_host">主机地址</label>
+            <input class="zhang_input" id="zhang_db_host" type="text" value="localhost" autocomplete="off" />
+          </div>
+          <div class="zhang_form_item">
+            <label class="zhang_form_label" for="zhang_db_port">端口</label>
+            <input class="zhang_input" id="zhang_db_port" type="number" value="3306" min="1" max="65535" />
+          </div>
+          <div class="zhang_form_item">
+            <label class="zhang_form_label" for="zhang_db_user">用户名</label>
+            <input class="zhang_input" id="zhang_db_user" type="text" value="root" autocomplete="off" />
+          </div>
+          <div class="zhang_form_item">
+            <label class="zhang_form_label" for="zhang_db_password">密码</label>
+            <input class="zhang_input" id="zhang_db_password" type="password" value="root" />
+          </div>
+          <div class="zhang_form_item">
+            <label class="zhang_form_label" for="zhang_db_name">数据库名</label>
+            <input class="zhang_input" id="zhang_db_name" type="text" value="zhang_db" autocomplete="off" />
+          </div>
+
+          <button class="zhang_btn" type="submit">连接数据库</button>
+        </form>
+
+        <div class="zhang_alert" id="zhang_alert" hidden>
+          <span class="zhang_alert_icon" id="zhang_alert_icon"></span>
+          <span class="zhang_alert_text" id="zhang_alert_text"></span>
+        </div>
+
+        <div class="zhang_db_info" id="zhang_db_info" hidden>
+          <h3 class="zhang_db_info_title">连接成功，数据库信息</h3>
+          <div class="zhang_db_info_row">
+            <span class="zhang_db_info_label">服务器</span>
+            <span id="zhang_info_server">-</span>
+          </div>
+          <div class="zhang_db_info_row">
+            <span class="zhang_db_info_label">版本</span>
+            <span id="zhang_info_version">-</span>
+          </div>
+          <div class="zhang_db_info_row">
+            <span class="zhang_db_info_label">数据库</span>
+            <span id="zhang_info_db">-</span>
+          </div>
+          <div class="zhang_db_info_row">
+            <span class="zhang_db_info_label">用户名</span>
+            <span id="zhang_info_user">-</span>
+          </div>
+          <div class="zhang_db_info_row">
+            <span class="zhang_db_info_label">字符集</span>
+            <span id="zhang_info_charset">-</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script src="./js/database.js"></script>
+</body>
+</html>

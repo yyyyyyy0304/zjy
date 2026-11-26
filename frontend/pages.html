@@ -1,0 +1,251 @@
+<!--
+姓名：【张婧雅】 | 学号：【24005240115】 |
+时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>页面导航存档 · 田园优选 | 张婧雅 24005240115</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <!-- Canvas 背景动画 -->
+  <canvas class="zhang_canvas_bg" id="zhang_canvas_bg"></canvas>
+
+  <header class="zhang_top">
+    <div class="zhang_top_inner">
+      <div class="zhang_brand">
+        <span class="zhang_brand_mark">田</span>
+        <div class="zhang_brand_text">
+          <div class="zhang_brand_name">田园优选</div>
+          <div class="zhang_brand_desc">页面导航存档</div>
+        </div>
+      </div>
+      <nav class="zhang_top_nav">
+        <a href="#zhang_meta">项目信息</a>
+        <a href="#zhang_pages">页面导航</a>
+        <a href="./index.html">返回新首页</a>
+        <a href="./login.html">登录</a>
+        <a href="./register.html">注册</a>
+        <a href="./admin/login.html">管理后台</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zhang_wrap">
+    <!-- 项目主视觉 -->
+    <section class="zhang_hero">
+      <p class="zhang_hero_tag">高级网页设计 · 全栈项目 · 页面导航存档</p>
+      <h1 class="zhang_hero_title">全部页面导航</h1>
+      <p class="zhang_hero_desc">以下为项目全部页面入口存档，其中部分页面依赖后端服务与 MySQL 数据库。</p>
+    </section>
+
+    <!-- 项目信息 -->
+    <section class="zhang_section" id="zhang_meta">
+      <h2 class="zhang_section_title">项目信息</h2>
+      <div class="zhang_meta_grid">
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">姓名</span>
+          <span class="zhang_meta_value">张婧雅</span>
+        </div>
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">学号</span>
+          <span class="zhang_meta_value">24005240115</span>
+        </div>
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">项目名称</span>
+          <span class="zhang_meta_value">田园优选 · 农产品销售网站</span>
+        </div>
+        <div class="zhang_meta_item">
+          <span class="zhang_meta_label">项目类别</span>
+          <span class="zhang_meta_value">自选</span>
+        </div>
+        <div class="zhang_meta_item zhang_meta_wide">
+          <span class="zhang_meta_label">技术栈</span>
+          <span class="zhang_meta_value">原生 HTML / CSS / JavaScript　+　Node.js + Express　+　MySQL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页面导航：新建 HTML 页面后在此追加超链接入口（文件名含 detail 的页面除外） -->
+    <section class="zhang_section" id="zhang_pages">
+      <h2 class="zhang_section_title">页面导航</h2>
+      <div class="zhang_page_list" id="zhang_page_list">
+        <a class="zhang_page_card" href="./index.html">
+          <span class="zhang_page_index">01</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">新首页</span>
+            <span class="zhang_page_file">index.html</span>
+            <span class="zhang_page_desc">项目新首页，只收录纯前端页面与 Supabase 页面，突出展示个人简历，后台接口页面统一通过说明页进入。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./database.html">
+          <span class="zhang_page_index">02</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">数据库连接</span>
+            <span class="zhang_page_file">database.html</span>
+            <span class="zhang_page_desc">输入用户名与密码连接 MySQL 数据库，成功与失败均有提示，并展示连接信息。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./news.html">
+          <span class="zhang_page_index">03</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">科技新闻列表</span>
+            <span class="zhang_page_file">news.html</span>
+            <span class="zhang_page_desc">从 MySQL 读取科技新闻，展示后端接口地址与数据内容，支持关键词搜索与分页。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./produce.html">
+          <span class="zhang_page_index">04</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">农产品图文列表</span>
+            <span class="zhang_page_file">produce.html</span>
+            <span class="zhang_page_desc">图文卡片展示农产品（图片 + 名称 + 价格 + 产地），数据来自 MySQL 表，并显示接口地址与原始数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./chat.html">
+          <span class="zhang_page_index">05</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">AI 智能聊天</span>
+            <span class="zhang_page_file">chat.html</span>
+            <span class="zhang_page_desc">与 SiliconFlow 大模型（DeepSeek-V4-Flash）实时对话，支持多轮上下文，在浏览器控制台输出发送与接收的完整数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./knowledge.html">
+          <span class="zhang_page_index">06</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">知识库管理（RAG）</span>
+            <span class="zhang_page_file">knowledge.html</span>
+            <span class="zhang_page_desc">上传 txt/pdf/doc/docx 文件构建知识库，自动解析分块检索，基于知识库内容进行 RAG 智能问答，在控制台输出发送与接收的数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./sentiment.html">
+          <span class="zhang_page_index">07</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">商业评论情感分类</span>
+            <span class="zhang_page_file">sentiment.html</span>
+            <span class="zhang_page_desc">上传 Excel 商业评论，由大模型逐条判定好评 / 中评 / 差评，饼状图展示占比并列出精选评论，控制台输出发送与接收的数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./vision.html">
+          <span class="zhang_page_index">08</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">图像识别</span>
+            <span class="zhang_page_file">vision.html</span>
+            <span class="zhang_page_desc">上传农产品图片，由视觉语言模型 Qwen3-VL-8B-Instruct 识别主体、品类、新鲜度与标签，输出结构化 JSON，写入识别记录表，控制台输出发送与接收的数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./voice.html">
+          <span class="zhang_page_index">09</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">语音识别</span>
+            <span class="zhang_page_file">voice.html</span>
+            <span class="zhang_page_desc">浏览器录音或上传音频，由语音识别模型 Qwen3-ASR-1.7B 转写为文本，再由大模型识别客服意图并生成建议回复，记录写入数据库，控制台输出发送与接收的数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./login.html">
+          <span class="zhang_page_index">10</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">用户登录</span>
+            <span class="zhang_page_file">login.html</span>
+            <span class="zhang_page_desc">填写用户名、密码与图形验证码登录，令牌保存在浏览器本地保持登录状态，可查看当前用户信息与退出登录。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./register.html">
+          <span class="zhang_page_index">11</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">用户注册</span>
+            <span class="zhang_page_file">register.html</span>
+            <span class="zhang_page_desc">用户名、昵称、邮箱、密码与确认密码逐项校验，图形验证码防刷，密码经 scrypt 加盐哈希后入库，注册成功自动跳转登录。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./admin/login.html">
+          <span class="zhang_page_index">12</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">管理员登录</span>
+            <span class="zhang_page_file">admin/login.html</span>
+            <span class="zhang_page_desc">左右结构后台登录页，左侧展示项目名称与 Logo，右侧管理员用户名、密码与图形验证码登录，提示信息使用自定义提示条与浮层。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./admin/index.html">
+          <span class="zhang_page_index">13</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">管理后台 · 仪表盘</span>
+            <span class="zhang_page_file">admin/index.html</span>
+            <span class="zhang_page_desc">后台首页展示新闻、农产品、用户与浏览量统计卡片，并用原生 Canvas 绘制分类柱状图、库存环形图、注册趋势折线图与库存 Top5 条形图，数据全部来自后端真实统计。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./admin/news.html">
+          <span class="zhang_page_index">14</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">管理后台 · 新闻管理</span>
+            <span class="zhang_page_file">admin/news.html</span>
+            <span class="zhang_page_desc">科技新闻的列表、详情、新增、编辑与删除，支持关键词搜索与分页，管理接口均需管理员令牌。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./admin/produce.html">
+          <span class="zhang_page_index">15</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">管理后台 · 农产品管理</span>
+            <span class="zhang_page_file">admin/produce.html</span>
+            <span class="zhang_page_desc">农产品图文信息的列表、详情、新增、编辑与删除，支持按名称、分类、产地与描述搜索及分页。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./admin/users.html">
+          <span class="zhang_page_index">16</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">管理后台 · 用户管理</span>
+            <span class="zhang_page_file">admin/users.html</span>
+            <span class="zhang_page_desc">注册用户的列表、详情、新增、编辑与删除，支持用户名、昵称、邮箱搜索与分页，可重置用户密码。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./ai-news.html">
+          <span class="zhang_page_index">17</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">AI 新闻列表（Supabase）</span>
+            <span class="zhang_page_file">ai-news.html</span>
+            <span class="zhang_page_desc">数据存放在 Supabase 云端 PostgreSQL，前端通过本地 supabase-js 直连查询，支持关键词搜索、分类筛选、排序、分页与详情弹层，并在控制台输出查询参数与返回数据。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+        <a class="zhang_page_card" href="./resume.html">
+          <span class="zhang_page_index">18</span>
+          <span class="zhang_page_body">
+            <span class="zhang_page_name">个人简历</span>
+            <span class="zhang_page_file">resume.html</span>
+            <span class="zhang_page_desc">根据 Word 简历整理的大学生求职简历页面，包含教育背景、专业技能、项目经历、实践荣誉等模块，配有 Canvas 粒子背景动画与滚动入场效果，支持一键打印 / 保存 PDF。</span>
+          </span>
+          <span class="zhang_page_arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="zhang_footer">
+    <p>张婧雅　24005240115　田园优选 · 农产品销售网站</p>
+  </footer>
+
+  <script src="./js/zhang_canvas.js"></script>
+  <script>
+    console.log('[页面导航存档] 已加载全部页面入口，共 18 个');
+  </script>
+</body>
+</html>
