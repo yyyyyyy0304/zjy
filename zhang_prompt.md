@@ -495,3 +495,21 @@
 
 ---
 
+## 2026-11-26 18:10:00 | DeepSeek-V4.1-Flash
+
+提示词全文：
+
+> 为什么上传到GitHub的不是网页（选择：配置 GitHub Pages）
+
+执行说明：
+
+- 诊断：Pages 默认按 main 分支根目录构建 Jekyll，线上实际显示的是 README 渲染页，`resume.html` 等子页面均为 404，说明未使用静态部署目录
+- 将纯静态目录 `deploy/` 重命名为 `docs/`（GitHub Pages 分支发布仅支持根目录或 `/docs`），共 38 个可访问页面与资源
+- 更新 `zhang_trae_deploy.ps1`：输出目录改为 `docs/`，并自动生成 `.nojekyll` 关闭 Jekyll 处理
+- 移除 `.github/workflows/zhang_pages.yml`，改用「分支 + /docs」发布，避免 Actions 与分支构建双重发布冲突
+- 生效方式：仓库 Settings → Pages → Source 选择 Deploy from a branch → main / docs，保存后访问 https://yyyyyyy0304.github.io/zjy/
+
+大模型名称：DeepSeek-V4.1-Flash
+
+---
+

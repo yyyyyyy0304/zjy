@@ -1,6 +1,6 @@
 ﻿# 姓名：【张婧雅】 | 学号：【24005240115】 |
 # 时间：2026-11-26 | 大模型：DeepSeek-V4.1-Flash
-# 说明：生成 Trae「一键部署」专用的纯静态目录 deploy/
+# 说明：生成纯静态目录 docs/（Trae 一键部署与 GitHub Pages 共用）
 #       只收集不使用后台接口的页面（新首页、个人简历、15 份接口页面说明），
 #       使用后台接口的页面（新闻、农产品、聊天、知识库、情感、图像、语音、登录注册、后台管理、Supabase 页面）不进入部署目录。
 
@@ -11,7 +11,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $zhang_root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $zhang_front = Join-Path $zhang_root 'frontend'
-$zhang_out = Join-Path $zhang_root 'deploy'
+$zhang_out = Join-Path $zhang_root 'docs'
 $zhang_utf8 = New-Object System.Text.UTF8Encoding($false)
 
 Write-Host '================================================'
@@ -26,9 +26,11 @@ if (-not (Test-Path (Join-Path $zhang_front 'index.html'))) {
 }
 
 # ---------- 1. 重建部署目录 ----------
-Write-Host '[1/4] 清理并重建 deploy 目录...'
+Write-Host '[1/4] 清理并重建 docs 目录...'
 if (Test-Path $zhang_out) { Remove-Item $zhang_out -Recurse -Force }
 New-Item -ItemType Directory -Path $zhang_out | Out-Null
+# 关闭 Jekyll 处理，保证静态文件原样发布到 GitHub Pages
+[System.IO.File]::WriteAllText((Join-Path $zhang_out '.nojekyll'), '', $zhang_utf8)
 
 # ---------- 2. 复制静态页面与资源 ----------
 Write-Host '[2/4] 复制纯静态页面与资源...'
@@ -111,7 +113,7 @@ Write-Host ('[完成] 部署目录：' + $zhang_out)
 Write-Host ('[完成] 文件数量：' + $zhang_all.Count + ' 个，合计约 ' + $zhang_totalKB + ' KB')
 Write-Host ''
 Write-Host '下一步：在 Trae 左侧插件市场安装并打开「一键部署」，'
-Write-Host '在对话中说明「只部署 deploy 目录，使用后台接口的页面不部署」即可上线。'
+Write-Host '在对话中说明「只部署 docs 目录，使用后台接口的页面不部署」即可上线。'
 Write-Host ''
 
 if (-not $NoOpen) {
