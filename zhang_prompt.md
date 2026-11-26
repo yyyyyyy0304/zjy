@@ -479,3 +479,19 @@
 
 ---
 
+## 2026-11-26 17:55:00 | DeepSeek-V4.1-Flash
+
+提示词全文：
+
+> 为什么上传到GitHub的不是网页
+
+执行说明：
+
+- 说明 GitHub 仓库首页只渲染 README.md，不会运行 HTML/Node/MySQL；项目为动态站，且页面位于子目录
+- 按用户选择配置 GitHub Pages：新增 `.github/workflows/zhang_pages.yml`，将纯静态目录 `deploy/` 通过官方 Pages Actions 发布（发布范围仅首页、简历、15 份说明文档，不含后台接口页面）
+- 工作流监听 main 分支中 `deploy/**` 与自身文件的变更，支持手动触发，并开启 `enablement: true` 自动启用 Pages
+
+大模型名称：DeepSeek-V4.1-Flash
+
+---
+
