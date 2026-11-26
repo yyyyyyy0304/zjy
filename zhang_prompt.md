@@ -469,11 +469,11 @@
 
 执行说明：
 
-- 远程仓库 `yyyyyyy0304/zjy` 为公开空仓库（默认分支 main），本地补装 origin 并修复 Git HTTPS 证书链问题（改用系统证书库 schannel，未关闭 TLS 校验）
+- 远程仓库 `yyyyyyy0304/zjy` 为公开空仓库（默认分支 main），本地新增 origin 远程并修复 Git HTTPS 证书链问题（改用系统证书库 schannel，未关闭 TLS 校验）
 - 密钥脱敏：`zhang_chatController.js`、`zhang_knowledgeController.js`、`zhang_sentimentController.js` 中的 SiliconFlow API Key 改为从 `backend/.env` 的 `LLM_API_KEY` 读取，不再硬编码
-- 历史清理：用 `git filter-branch` 重写全部提交，将 `zhang_prompt.md` 历史中的 API Key 与 Supabase secret 替换为「已脱敏」
+- 历史清理：按用户确认采用「压缩为单次提交」方案，用 `git checkout --orphan main` 以脱敏后的文件重建 main 分支并只推送这一次提交；旧的 4 次提交仅保留在本地 master，不推送到远程
 - `.gitignore` 继续排除 `backend/.env`、`node_modules/`、日志与分享包，仓库中不含数据库凭据
-- 本地 `master` 重命名为 `main`，推送至 `origin/main` 并建立跟踪关系
+- 推送 `origin/main` 成功（提交 0451084），本地 main 已跟踪 origin/main；远程仓库中不存在 `backend/.env`
 
 大模型名称：DeepSeek-V4.1-Flash
 
